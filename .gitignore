@@ -33,7 +33,6 @@ bun.lockb
 
 public/mix-manifest.json
 
-public/
 public/docs
 resources/docs
 
