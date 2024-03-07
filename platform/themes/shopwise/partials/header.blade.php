@@ -8,7 +8,7 @@
 
         {!! BaseHelper::googleFonts('https://fonts.googleapis.com/css2?family=' . urlencode(theme_option('primary_font', 'Poppins')) . ':wght@200;300;400;500;600;700;800;900&display=swap') !!}
 
-        {{-- <style>
+        <style>
             :root {
                 --color-1st: {{ theme_option('primary_color', '#FF324D') }};
                 --primary-color: {{ theme_option('primary_color', '#FF324D') }};
@@ -16,7 +16,7 @@
                 --secondary-color: {{ theme_option('secondary_color', '#1D2224') }};
                 --primary-font: '{{ theme_option('primary_font', 'Poppins') }}', sans-serif;
             }
-        </style> --}}
+        </style>
 
         {!! Theme::header() !!}
     </head>
@@ -96,8 +96,8 @@
         <!-- Menu For Mobile Device -->
         <div class="mobile-nav">
              <a href="index.html" class="logo">
-                <img src="themes/shopwise/assets/images/logos/logo-1.png" class="logo-one" alt="Logo">
-                <img src="themes/shopwise/assets/images/logos/logo-2.png" class="logo-two" alt="Logo">
+                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" class="logo-one" alt="Logo">
+                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" class="logo-two" alt="Logo">
             </a>
         </div>
 
@@ -107,8 +107,8 @@
                 <div class="container-max">
                     <nav class="navbar navbar-expand-md navbar-light ">
                         <a class="navbar-brand" href="index.html">
-                            <img src="themes/shopwise/assets/images/logos/logo-1.png" class="logo-one" alt="Logo">
-                            <img src="themes/shopwise/assets/images/logos/logo-2.png" class="logo-two" alt="Logo">
+                            <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" class="logo-one" alt="Logo">
+                            <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" class="logo-two" alt="Logo">
                         </a>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
