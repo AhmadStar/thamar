@@ -203,7 +203,7 @@
 
     // Preloader JS
     $(window).on('load',function(){
-        $(".preloader").fadeOut(500);
+        $(".preloader").fadeOut(100);
     });
 
     // Back To Top

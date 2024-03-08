@@ -5,20 +5,20 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="banner-content">
-                        <h1>Digital IT Service With Excellent Quality</h1>
+                        <h1>{{$shortcode->title}}</h1>
                         <p>
-                            Aenean Sollicitudin, Lorem quis Bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet
-                        </p>
+                            {{$shortcode->content_1}}
+                            </p>
                         <div class="banner-btn">
-                            <a href="about.html" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
-                            <a href="contact.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                            <a href="about.html" class="default-btn btn-bg-two border-radius-50">{{__('Learn More')}} <i class='bx bx-chevron-right'></i></a>
+                            <a href="contact.html" class="default-btn btn-bg-one border-radius-50 ml-20">{{__('Contact Us')}} <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-7">
                     <div class="banner-img">
-                        <img src="themes/shopwise/assets/images/home-three/home-three-img.png" alt="Images">
+                        <img src="{{ RvMedia::getImageUrl($shortcode->image) }}" alt="Images">
                         <div class="banner-img-shape">
                             <img src="themes/shopwise/assets/images/home-three/home-three-shape.png" alt="Images">
                         </div>

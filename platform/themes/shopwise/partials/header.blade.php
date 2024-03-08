@@ -112,215 +112,218 @@
                         </a>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav m-auto">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link active">
-                                        Home
-                                        <i class='bx bx-caret-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="index.html" class="nav-link">
-                                                Home One
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-2.html" class="nav-link">
-                                                Home Two
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-3.html" class="nav-link active">
-                                                Home Three
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-4.html" class="nav-link">
-                                                Home Four
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-5.html" class="nav-link">
-                                                Home Five
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-6.html" class="nav-link">
-                                                Home Six
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-7.html" class="nav-link">
-                                                Home Seven
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-8.html" class="nav-link">
-                                                Video Home <span>(New)</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            {{--<ul class="navbar-nav m-auto">--}}
+                                {{--<li class="nav-item">--}}
+                                    {{--<a href="#" class="nav-link active">--}}
+                                        {{--Home--}}
+                                        {{--<i class='bx bx-caret-down'></i>--}}
+                                    {{--</a>--}}
+                                    {{--<ul class="dropdown-menu">--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index.html" class="nav-link">--}}
+                                                {{--Home One--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-2.html" class="nav-link">--}}
+                                                {{--Home Two--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-3.html" class="nav-link active">--}}
+                                                {{--Home Three--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-4.html" class="nav-link">--}}
+                                                {{--Home Four--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-5.html" class="nav-link">--}}
+                                                {{--Home Five--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-6.html" class="nav-link">--}}
+                                                {{--Home Six--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-7.html" class="nav-link">--}}
+                                                {{--Home Seven--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="index-8.html" class="nav-link">--}}
+                                                {{--Video Home <span>(New)</span>--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
 
-                                <li class="nav-item">
-                                    <a href="about.html" class="nav-link">
-                                        About
-                                    </a>
-                                </li>
+                                {{--<li class="nav-item">--}}
+                                    {{--<a href="about.html" class="nav-link">--}}
+                                        {{--About--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
 
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Pages
-                                        <i class='bx bx-caret-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="team.html" class="nav-link">
-                                                Team
-                                            </a>
-                                        </li>
+                                {{--<li class="nav-item">--}}
+                                    {{--<a href="#" class="nav-link">--}}
+                                        {{--Pages--}}
+                                        {{--<i class='bx bx-caret-down'></i>--}}
+                                    {{--</a>--}}
+                                    {{--<ul class="dropdown-menu">--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="team.html" class="nav-link">--}}
+                                                {{--Team--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="testimonials.html" class="nav-link">
-                                                Testimonials
-                                            </a>
-                                        </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="testimonials.html" class="nav-link">--}}
+                                                {{--Testimonials--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="faq.html" class="nav-link">
-                                                FAQ
-                                            </a>
-                                        </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="faq.html" class="nav-link">--}}
+                                                {{--FAQ--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
 
-                                       <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                Case Study
-                                                <i class='bx bx-caret-down'></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="case-study.html" class="nav-link">
-                                                        Case Study
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="case-details.html" class="nav-link">
-                                                        Case Study Details
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                       {{--<li class="nav-item">--}}
+                                            {{--<a href="#" class="nav-link">--}}
+                                                {{--Case Study--}}
+                                                {{--<i class='bx bx-caret-down'></i>--}}
+                                            {{--</a>--}}
+                                            {{--<ul class="dropdown-menu">--}}
+                                                {{--<li class="nav-item">--}}
+                                                    {{--<a href="case-study.html" class="nav-link">--}}
+                                                        {{--Case Study--}}
+                                                    {{--</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li class="nav-item">--}}
+                                                    {{--<a href="case-details.html" class="nav-link">--}}
+                                                        {{--Case Study Details--}}
+                                                    {{--</a>--}}
+                                                {{--</li>--}}
+                                            {{--</ul>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                User
-                                                <i class='bx bx-caret-down'></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="log-in.html" class="nav-link">
-                                                        Log In
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="register.html" class="nav-link">
-                                                        Registration
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="forget-password.html" class="nav-link">
-                                                        Forget Password
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="#" class="nav-link">--}}
+                                                {{--User--}}
+                                                {{--<i class='bx bx-caret-down'></i>--}}
+                                            {{--</a>--}}
+                                            {{--<ul class="dropdown-menu">--}}
+                                                {{--<li class="nav-item">--}}
+                                                    {{--<a href="log-in.html" class="nav-link">--}}
+                                                        {{--Log In--}}
+                                                    {{--</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li class="nav-item">--}}
+                                                    {{--<a href="register.html" class="nav-link">--}}
+                                                        {{--Registration--}}
+                                                    {{--</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li class="nav-item">--}}
+                                                    {{--<a href="forget-password.html" class="nav-link">--}}
+                                                        {{--Forget Password--}}
+                                                    {{--</a>--}}
+                                                {{--</li>--}}
+                                            {{--</ul>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="terms-condition.html" class="nav-link">
-                                                Terms & Conditions
-                                            </a>
-                                        </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="terms-condition.html" class="nav-link">--}}
+                                                {{--Terms & Conditions--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="privacy-policy.html" class="nav-link">
-                                                Privacy Policy
-                                            </a>
-                                        </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="privacy-policy.html" class="nav-link">--}}
+                                                {{--Privacy Policy--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="404.html" class="nav-link">
-                                                404 page
-                                            </a>
-                                        </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="404.html" class="nav-link">--}}
+                                                {{--404 page--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
 
-                                        <li class="nav-item">
-                                            <a href="coming-soon.html" class="nav-link">
-                                                Coming Soon
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="coming-soon.html" class="nav-link">--}}
+                                                {{--Coming Soon--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
 
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Services
-                                        <i class='bx bx-caret-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="services-1.html" class="nav-link">
-                                                Services Style One
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="services-2.html" class="nav-link">
-                                                Services Style Two
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="service-details.html" class="nav-link">
-                                                Service Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {{--<li class="nav-item">--}}
+                                    {{--<a href="#" class="nav-link">--}}
+                                        {{--Services--}}
+                                        {{--<i class='bx bx-caret-down'></i>--}}
+                                    {{--</a>--}}
+                                    {{--<ul class="dropdown-menu">--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="services-1.html" class="nav-link">--}}
+                                                {{--Services Style One--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="services-2.html" class="nav-link">--}}
+                                                {{--Services Style Two--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="service-details.html" class="nav-link">--}}
+                                                {{--Service Details--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
 
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Blog
-                                        <i class='bx bx-caret-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="blog-1.html" class="nav-link">
-                                                Blog Style One
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-2.html" class="nav-link">
-                                                Blog Style Two
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-details.html" class="nav-link">
-                                                Blog Details
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {{--<li class="nav-item">--}}
+                                    {{--<a href="#" class="nav-link">--}}
+                                        {{--Blog--}}
+                                        {{--<i class='bx bx-caret-down'></i>--}}
+                                    {{--</a>--}}
+                                    {{--<ul class="dropdown-menu">--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="blog-1.html" class="nav-link">--}}
+                                                {{--Blog Style One--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="blog-2.html" class="nav-link">--}}
+                                                {{--Blog Style Two--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="nav-item">--}}
+                                            {{--<a href="blog-details.html" class="nav-link">--}}
+                                                {{--Blog Details--}}
+                                            {{--</a>--}}
+                                        {{--</li>--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
 
-                                <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-
+                                {{--<li class="nav-item">--}}
+                                    {{--<a href="contact.html" class="nav-link">--}}
+                                        {{--Contact--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                            {!! Menu::renderMenuLocation('main-menu', [
+                                                  'view' => 'menu',
+                                                  'options' => ['class' => 'menu'],
+                                              ]) !!}
                             <div class="nav-side d-display nav-side-mt">
                                 <div class="nav-side-item">
                                     <div class="search-side-widget">
                                         <form class="search-side-form">
-                                            <input type="search" class="form-control" placeholder="Search...">
+                                            <input type="search" class="form-control" placeholder="{{__('Search')}}...">
                                             <button type="submit">
                                                 <i class="bx bx-search"></i>
                                             </button>
@@ -330,7 +333,7 @@
 
                                 <div class="nav-side-item">
                                     <div class="get-btn">
-                                        <a href="contact.html" class="default-btn btn-bg-two border-radius-50">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                                        <a href="contact.html" class="default-btn btn-bg-two border-radius-50">{{__('Get A Quote')}} <i class='bx bx-chevron-right'></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -358,7 +361,7 @@
                                     <i class='bx bx-search'></i>
                                 </div>
                                 <div class="get-btn">
-                                    <a href="contact.html" class="default-btn btn-bg-two border-radius-50">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                                    <a href="contact.html" class="default-btn btn-bg-two border-radius-50">{{__('Get A Quote')}} <i class='bx bx-chevron-right'></i></a>
                                 </div>
                             </div>
                         </div>

@@ -71,7 +71,13 @@ return [
 
 
             if (BaseHelper::isRtlEnabled()) {
-                $theme->asset()->usePath()->add('rtl-style', 'assets/css/rtl-style.css', [], [], $version);
+                $theme->asset()->usePath()->add('rtl-style', 'css/rtl-style.css', [], [], $version);
+
+                $theme->asset()->usePath()->add('thamar-style-rtl', 'css/thamar-style-rtl.css', [], [], $version);
+
+                $theme->asset()->usePath()->add('thamar-rtl', 'css/thamar-rtl.css', [], [], $version);
+
+
             }
 
             // $theme->asset()->container('header')->usePath()->add('jquery', 'js/jquery-3.6.0.min.js');

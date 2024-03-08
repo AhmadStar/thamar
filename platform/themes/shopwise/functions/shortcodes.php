@@ -132,7 +132,7 @@ app()->booted(function () {
 
     add_shortcode('banner', __('banner'), __('banner'), function (Shortcode $shortcode) {
         $field = '';
-        return Theme::partial('shortcodes.banner', compact('field'));
+        return Theme::partial('shortcodes.banner', compact('field','shortcode'));
     });
 
     shortcode()->setAdminConfig('banner', function (array $attributes) {
