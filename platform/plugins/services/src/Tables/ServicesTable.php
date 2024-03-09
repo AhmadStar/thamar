@@ -11,7 +11,9 @@ use Botble\Table\Actions\DeleteAction;
 use Botble\Table\Actions\EditAction;
 use Botble\Table\BulkActions\DeleteBulkAction;
 use Botble\Table\Columns\CreatedAtColumn;
+use Botble\Table\Columns\FormattedColumn;
 use Botble\Table\Columns\IdColumn;
+use Botble\Table\Columns\ImageColumn;
 use Botble\Table\Columns\NameColumn;
 use Botble\Table\Columns\StatusColumn;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +58,9 @@ class ServicesTable extends TableAbstract
             ->select([
                'id',
                'name',
+        'slug',
+        'image',
+        'service_type',
                'created_at',
                'status',
            ]);
@@ -67,7 +72,10 @@ class ServicesTable extends TableAbstract
     {
         return [
             IdColumn::make(),
+            ImageColumn::make(),
             NameColumn::make(),
+            FormattedColumn::make('service_type')
+                ->title(trans('type')),
             CreatedAtColumn::make(),
             StatusColumn::make(),
         ];
@@ -88,11 +96,22 @@ class ServicesTable extends TableAbstract
     public function getBulkChanges(): array
     {
         return [
+            'image' => [
+                'title' => trans('image'),
+                'type' => 'text',
+                'validate' => 'required|max:120',
+            ],
             'name' => [
                 'title' => trans('core/base::tables.name'),
                 'type' => 'text',
                 'validate' => 'required|max:120',
             ],
+            'service_type' => [
+                'title' => trans('service type'),
+                'type' => 'text',
+                'validate' => 'required|max:120',
+            ],
+
             'status' => [
                 'title' => trans('core/base::tables.status'),
                 'type' => 'select',

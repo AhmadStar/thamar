@@ -140,8 +140,8 @@ app()->booted(function () {
     });
 
     add_shortcode('about-home', __('about-home'), __('about-home'), function (Shortcode $shortcode) {
-        $field = '';
-        return Theme::partial('shortcodes.about-home', compact('field'));
+
+        return Theme::partial('shortcodes.about-home', compact('shortcode'));
     });
 
     shortcode()->setAdminConfig('about-home', function (array $attributes) {
@@ -150,16 +150,28 @@ app()->booted(function () {
 
     add_shortcode('services-home', __('services-home'), __('services-home'), function (Shortcode $shortcode) {
         $field = '';
-        return Theme::partial('shortcodes.services-home', compact('field'));
+        $services = \Botble\Services\Models\Services::query()
+            ->wherePublished()
+            ->where('service_type','=',3)
+            ->limit(3)
+            ->get();
+
+        return Theme::partial('shortcodes.services-home', compact('shortcode','services'));
     });
 
     shortcode()->setAdminConfig('services-home', function (array $attributes) {
+
         return Theme::partial('shortcodes.services-home-admin-config', compact('attributes'));
     });
 
     add_shortcode('soloutions-home', __('soloutions-home'), __('soloutions-home'), function (Shortcode $shortcode) {
-        $field = '';
-        return Theme::partial('shortcodes.soloutions-home', compact('field'));
+        $services = \Botble\Services\Models\Services::query()
+            ->wherePublished()
+            ->where('service_type','=',1)
+            ->limit(3)
+            ->get();
+
+        return Theme::partial('shortcodes.soloutions-home', compact('services','shortcode'));
     });
 
     shortcode()->setAdminConfig('soloutions-home', function (array $attributes) {
@@ -168,7 +180,7 @@ app()->booted(function () {
 
     add_shortcode('video-home', __('video-home'), __('video-home'), function (Shortcode $shortcode) {
         $field = '';
-        return Theme::partial('shortcodes.video-home', compact('field'));
+        return Theme::partial('shortcodes.video-home', compact('shortcode'));
     });
 
     shortcode()->setAdminConfig('video-home', function (array $attributes) {
@@ -177,7 +189,7 @@ app()->booted(function () {
 
     add_shortcode('case-study', __('case-study'), __('case-study'), function (Shortcode $shortcode) {
         $field = '';
-        return Theme::partial('shortcodes.case-study', compact('field'));
+        return Theme::partial('shortcodes.case-study', compact('shortcode'));
     });
 
     shortcode()->setAdminConfig('case-study', function (array $attributes) {
@@ -186,7 +198,7 @@ app()->booted(function () {
 
     add_shortcode('lets-talk', __('lets-talk'), __('lets-talk'), function (Shortcode $shortcode) {
         $field = '';
-        return Theme::partial('shortcodes.lets-talk', compact('field'));
+        return Theme::partial('shortcodes.lets-talk', compact('shortcode'));
     });
 
     shortcode()->setAdminConfig('lets-talk', function (array $attributes) {

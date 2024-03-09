@@ -1779,13 +1779,33 @@ Security Area Area
   margin-bottom: 12px;
   transition: 0.5s;
 }
+.youtube-vid .case-play-btn::before,.youtube-vid .play-btn-area::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/storage/general/innovation.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+}
 .security-card h3 {
   margin-bottom: 10px;
+}
+.services-item .content img{
+  width: 55px;
+  position: absolute;
+  top: 17px;
 }
 .security-card h3 a {
   color: #252525;
   transition: 0.5s;
   display: block;
+  font-size: 18px;
 }
 .security-card p {
   margin-bottom: 0;
@@ -5941,7 +5961,23 @@ Home Page Six Css
   background-repeat: no-repeat;
   opacity: 0.1;
 }
-
+.security-card  {
+  min-height: 270px;
+}
+.security-card img {
+  font-size: 45px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  color: #252525;
+  background-color: #e5f3ff;
+  border-radius: 50px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 12px;
+  transition: 0.5s;
+  padding: 10px;
+}
 /*==================================
 Home Page Six Css End
 =====================================*/

@@ -35,7 +35,9 @@ class ServicesController extends BaseController
     public function store(ServicesRequest $request, BaseHttpResponse $response)
     {
         $services = Services::query()->create($request->input());
+        $services->slug = $this->slug($services->name, '-');
 
+        $services->save();
         event(new CreatedContentEvent(SERVICES_MODULE_SCREEN_NAME, $request, $services));
 
         return $response
@@ -54,6 +56,8 @@ class ServicesController extends BaseController
     public function update(Services $services, ServicesRequest $request, BaseHttpResponse $response)
     {
         $services->fill($request->input());
+        $services->slug = $this->slug($services->name, '-');
+
 
         $services->save();
 
@@ -63,7 +67,23 @@ class ServicesController extends BaseController
             ->setPreviousUrl(route('services.index'))
             ->setMessage(trans('core/base::notices.update_success_message'));
     }
+    public function slug($string, $separator = '-') {
+        if (is_null($string)) {
+            return "";
+        }
 
+        $string = trim($string);
+
+        $string = mb_strtolower($string, "UTF-8");;
+
+        $string = preg_replace("/[^a-z0-9_\sءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]#u/", "", $string);
+
+        $string = preg_replace("/[\s-]+/", " ", $string);
+
+        $string = preg_replace("/[\s_]/", $separator, $string);
+
+        return $string;
+    }
     public function destroy(Services $services, Request $request, BaseHttpResponse $response)
     {
         try {

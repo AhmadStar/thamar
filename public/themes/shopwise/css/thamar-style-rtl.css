@@ -225,7 +225,10 @@ Default Btn Style
   width: 135%;
   background-color: #252525;
 }
+.services-item .content img {
 
+  right: 10px;
+}
 .btn-bg-one {
   background-color: #ffc221;
 }
@@ -2711,7 +2714,7 @@ Build Area
 Build Area End
 =================================*/
 .talk-area {
-  background-image: url(../images/talk-bg.jpg);
+  background-image: url(/storage/general/talk-bg.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

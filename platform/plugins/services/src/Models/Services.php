@@ -15,6 +15,13 @@ class Services extends BaseModel
 
     protected $fillable = [
         'name',
+        'slug',
+        'image',
+        'service_type',
+        'icon',
+        'color',
+        'content',
+        'summary',
         'status',
     ];
 

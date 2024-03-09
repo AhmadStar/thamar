@@ -11,26 +11,78 @@ class ServicesForm extends FormAbstract
 {
     public function buildForm(): void
     {
+
+        $servicesTypes = \Botble\Services\Models\ServicesTypes::query()
+
+            ->get()->pluck('name', 'id')->toArray();
+
+        if ($this->getModel()) {
+
+
+
+        }
+
         $this
             ->setupModel(new Services)
             ->setValidatorClass(ServicesRequest::class)
             ->withCustomFields()
             ->add('name', 'text', [
-                'label' => trans('core/base::forms.name'),
+                'label'      => trans('core/base::forms.name'),
                 'label_attr' => ['class' => 'control-label required'],
-                'attr' => [
-                    'placeholder' => trans('core/base::forms.name_placeholder'),
+                'attr'       => [
+                    'placeholder'  => trans('core/base::forms.name_placeholder'),
                     'data-counter' => 120,
                 ],
             ])
-            ->add('status', 'customSelect', [
-                'label' => trans('core/base::tables.status'),
-                'label_attr' => ['class' => 'control-label required'],
+            ->add('icon', 'mediaImage', [
+                'label' => __('Icon'),
+                'label_attr' => ['class' => 'control-label'],
+            ])
+
+            ->add('summary', 'textarea', [
+                'label'      => __('Summary'),
+                'label_attr' => ['class' => 'control-label '],
+                'attr'       => [
+
+                    'data-counter' => 120,
+                ],
+            ])
+
+
+            ->add('content', 'editor', [
+                'label' => __('content'),
+                'label_attr' => ['class' => 'control-label'],
                 'attr' => [
+                    'with-short-code' => false, // if true, it will add a button to select shortcode
+                    'without-buttons' => false, // if true, all buttons will be hidden
+                ],
+            ])
+            ->add('status', 'customSelect', [
+                'label'      => trans('core/base::tables.status'),
+                'label_attr' => ['class' => 'control-label required'],
+                'attr'       => [
                     'class' => 'form-control select-full',
                 ],
-                'choices' => BaseStatusEnum::labels(),
+                'choices'    => BaseStatusEnum::labels(),
             ])
+
+            ->add('color', 'color', [
+                'label' => __('Color'),
+                'label_attr' => ['class' => 'control-label'],
+            ])
+            ->add('image', 'mediaImage', [
+                'label' => __('Image'),
+                'label_attr' => ['class' => 'control-label'],
+            ])
+            ->add('service_type', 'customSelect', [
+                'label'      => trans('core/base::tables.status'),
+                'label_attr' => ['class' => 'control-label required'],
+                'attr'       => [
+                    'class' => 'form-control select-full',
+                ],
+                'choices'    => $servicesTypes,
+            ])
+
             ->setBreakFieldPoint('status');
     }
 }

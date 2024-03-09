@@ -4,11 +4,12 @@
 <div class="case-study-area pb-70">
     <div class="container-fluid p-0">
         <div class="section-title text-center">
-            <span class="sp-color2">Case Study</span>
-            <h2>Introduce Our Projects and Check Recent Work </h2>
+
+            <h2>{{$shortcode->title}}</h2>
+            <span class="sp-color2">{{$shortcode->content_1}}</span>
         </div>
 
-        <div class="case-study-slider owl-carousel owl-theme pt-45">
+        <div class="case-study-slider owl-carousel owl-theme pt-45" style="direction: ltr">
             <div class="case-study-item">
                 <a href="case-details.html">
                     <img src="themes/shopwise/assets/images/case-study/case-study1.jpg" alt="Images">
