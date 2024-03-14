@@ -4,16 +4,36 @@ namespace Botble\Projects\Forms;
 
 use Botble\Base\Forms\FormAbstract;
 use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Blog\Forms\Fields\CategoryMultiField;
+use Botble\Gallery\Models\Gallery;
 use Botble\Projects\Http\Requests\ProjectsRequest;
+use Botble\Projects\Models\Category;
 use Botble\Projects\Models\Projects;
-
+use Botble\Services\Models\Services;
+use Botble\Projects\Forms\Fields\ServicesMultiField;
 class ProjectsForm extends FormAbstract
 {
-    public function buildForm(): void
+
+    /**
+     * {@inheritDoc}
+     */
+    public function buildForm()
     {
+        $galleries = Gallery::getAll();
+        $services = Services::getAllLangServices();//get_services_choices();
+        $categories = Category::getALl();
+        $selectedServices = [];
+        if (!$this->formHelper->hasCustomField('servicesMulti')) {
+            $this->formHelper->addCustomField('servicesMulti', ServicesMultiField::class);
+        }
 
-        $services = Services::getAllLangServices();
+        if ($this->getModel()) {
 
+            $temp = $this->getModel()->services;
+            foreach($temp as $item){
+                $selectedServices[] = $item->id;
+            }
+        }
 
         $this
             ->setupModel(new Projects)
@@ -23,6 +43,8 @@ class ProjectsForm extends FormAbstract
                 'label' => __('Image'),
                 'label_attr' => ['class' => 'control-label'],
             ])
+
+
             ->add('name', 'text', [
                 'label'      => trans('core/base::forms.name'),
                 'label_attr' => ['class' => 'control-label required'],
@@ -39,6 +61,14 @@ class ProjectsForm extends FormAbstract
                     'data-counter' => 120,
                 ],
             ])
+            ->add('youtube', 'text', [
+                'label'      => trans('Youtube'),
+                'label_attr' => ['class' => 'control-label '],
+                'attr'       => [
+                    'data-counter' => 120,
+                ],
+            ])
+
             ->add('content', 'editor', [
                 'label' => __('content'),
                 'label_attr' => ['class' => 'control-label'],
@@ -73,12 +103,30 @@ class ProjectsForm extends FormAbstract
                 ],
                 'choices'    => BaseStatusEnum::labels(),
             ])
+            ->add('category_id', 'select', [
+                'label'      => __('Category'),
+                'label_attr' => ['class' => 'control-label required'],
+                'choices'    => $categories,
+            ])
 
-            ->add('service_id', 'customSelect', [
-                'label'      => trans('Service'),
+            ->add('gallery_id', 'select', [
+                'label'      => __('Gallery'),
+                'label_attr' => ['class' => 'control-label required'],
+                'choices'    => $galleries,
+            ])
+            ->add('header_img', 'mediaImage', [
+                'label' => __('Header Image'),
+                'label_attr' => ['class' => 'control-label'],
+            ])
+            ->add('voice_banner', 'mediaImage', [
+                'label' => __('Voice Banner'),
+                'label_attr' => ['class' => 'control-label'],
+            ])
+            ->add('services[]', 'servicesMulti', [
+                'label'      => trans('Services'),
                 'label_attr' => ['class' => 'control-label required'],
                 'choices'    => $services,
-
+                'value'      => old('services', $selectedServices),
             ])
             ->setBreakFieldPoint('status');
     }
