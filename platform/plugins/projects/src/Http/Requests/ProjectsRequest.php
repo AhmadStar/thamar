@@ -8,18 +8,10 @@ use Illuminate\Validation\Rule;
 
 class ProjectsRequest extends Request
 {
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name'   => 'required',
-            'image'=>'required',
-            'header_img'=>'required',
+            'name' => 'required|string|max:220',
             'status' => Rule::in(BaseStatusEnum::values()),
         ];
     }

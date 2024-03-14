@@ -2,9 +2,9 @@
 
 namespace Botble\Projects\Http\Controllers;
 
-use Botble\Base\Events\BeforeEditContentEvent;
 use Botble\Projects\Http\Requests\ProjectsRequest;
-use Botble\Projects\Repositories\Interfaces\ProjectsInterface;
+use Botble\Projects\Models\Projects;
+use Botble\Base\Facades\PageTitle;
 use Botble\Base\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 use Exception;
@@ -18,122 +18,56 @@ use Botble\Base\Forms\FormBuilder;
 
 class ProjectsController extends BaseController
 {
-    /**
-     * @var ProjectsInterface
-     */
-    protected $projectsRepository;
-
-    /**
-     * @param ProjectsInterface $projectsRepository
-     */
-    public function __construct(ProjectsInterface $projectsRepository)
-    {
-        $this->projectsRepository = $projectsRepository;
-    }
-
-    /**
-     * @param ProjectsTable $table
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Throwable
-     */
     public function index(ProjectsTable $table)
     {
-        page_title()->setTitle(trans('plugins/projects::projects.name'));
+        PageTitle::setTitle(trans('plugins/projects::projects.name'));
 
         return $table->renderTable();
     }
 
-    /**
-     * @param FormBuilder $formBuilder
-     * @return string
-     */
     public function create(FormBuilder $formBuilder)
     {
-        page_title()->setTitle(trans('plugins/projects::projects.create'));
+        PageTitle::setTitle(trans('plugins/projects::projects.create'));
 
         return $formBuilder->create(ProjectsForm::class)->renderForm();
     }
 
-    /**
-     * @param ProjectsRequest $request
-     * @param BaseHttpResponse $response
-     * @return BaseHttpResponse
-     */
     public function store(ProjectsRequest $request, BaseHttpResponse $response)
     {
-        $projects = $this->projectsRepository->createOrUpdate($request->input());
+        $projects = Projects::query()->create($request->input());
 
         event(new CreatedContentEvent(PROJECTS_MODULE_SCREEN_NAME, $request, $projects));
-        $services = $request->input('services');
 
-        if (!empty($services)) {
-            $projects->services()->detach();
-            foreach ($services as $service) {
-                $projects->services()->attach($service);
-            }
-        }
         return $response
             ->setPreviousUrl(route('projects.index'))
-            ->setNextUrl(route('projects.edit', $projects->id))
+            ->setNextUrl(route('projects.edit', $projects->getKey()))
             ->setMessage(trans('core/base::notices.create_success_message'));
     }
 
-    /**
-     * @param $id
-     * @param Request $request
-     * @param FormBuilder $formBuilder
-     * @return string
-     */
-    public function edit($id, FormBuilder $formBuilder, Request $request)
+    public function edit(Projects $projects, FormBuilder $formBuilder)
     {
-        $projects = $this->projectsRepository->findOrFail($id);
-
-        event(new BeforeEditContentEvent($request, $projects));
-
-        page_title()->setTitle(trans('plugins/projects::projects.edit') . ' "' . $projects->name . '"');
+        PageTitle::setTitle(trans('core/base::forms.edit_item', ['name' => $projects->name]));
 
         return $formBuilder->create(ProjectsForm::class, ['model' => $projects])->renderForm();
     }
 
-    /**
-     * @param $id
-     * @param ProjectsRequest $request
-     * @param BaseHttpResponse $response
-     * @return BaseHttpResponse
-     */
-    public function update($id, ProjectsRequest $request, BaseHttpResponse $response)
+    public function update(Projects $projects, ProjectsRequest $request, BaseHttpResponse $response)
     {
-        $projects = $this->projectsRepository->findOrFail($id);
-
         $projects->fill($request->input());
 
-        $this->projectsRepository->createOrUpdate($projects);
+        $projects->save();
 
         event(new UpdatedContentEvent(PROJECTS_MODULE_SCREEN_NAME, $request, $projects));
-        $services = $request->input('services');
-        if (!empty($services)) {
-            $projects->services()->detach();
-            foreach ($services as $service) {
-                $projects->services()->attach($service);
-            }
-        }
+
         return $response
             ->setPreviousUrl(route('projects.index'))
             ->setMessage(trans('core/base::notices.update_success_message'));
     }
 
-    /**
-     * @param $id
-     * @param Request $request
-     * @param BaseHttpResponse $response
-     * @return BaseHttpResponse
-     */
-    public function destroy(Request $request, $id, BaseHttpResponse $response)
+    public function destroy(Projects $projects, Request $request, BaseHttpResponse $response)
     {
         try {
-            $projects = $this->projectsRepository->findOrFail($id);
-
-            $this->projectsRepository->delete($projects);
+            $projects->delete();
 
             event(new DeletedContentEvent(PROJECTS_MODULE_SCREEN_NAME, $request, $projects));
 
@@ -143,29 +77,5 @@ class ProjectsController extends BaseController
                 ->setError()
                 ->setMessage($exception->getMessage());
         }
-    }
-
-    /**
-     * @param Request $request
-     * @param BaseHttpResponse $response
-     * @return BaseHttpResponse
-     * @throws Exception
-     */
-    public function deletes(Request $request, BaseHttpResponse $response)
-    {
-        $ids = $request->input('ids');
-        if (empty($ids)) {
-            return $response
-                ->setError()
-                ->setMessage(trans('core/base::notices.no_select'));
-        }
-
-        foreach ($ids as $id) {
-            $projects = $this->projectsRepository->findOrFail($id);
-            $this->projectsRepository->delete($projects);
-            event(new DeletedContentEvent(PROJECTS_MODULE_SCREEN_NAME, $request, $projects));
-        }
-
-        return $response->setMessage(trans('core/base::notices.delete_success_message'));
     }
 }

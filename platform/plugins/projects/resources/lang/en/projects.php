@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'name'   => 'Projects',
+    'name' => 'Projects',
     'create' => 'New projects',
-    'edit'   => 'Edit projects',
 ];
