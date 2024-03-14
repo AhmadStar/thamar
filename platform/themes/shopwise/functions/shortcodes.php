@@ -224,8 +224,11 @@ app()->booted(function () {
     });
 
     add_shortcode('clients', __('clients'), __('clients'), function (Shortcode $shortcode) {
-        $field = '';
-        return Theme::partial('shortcodes.clients', compact('field'));
+        $testimonials = Testimonial::query()
+                ->where(['status' => BaseStatusEnum::PUBLISHED])
+                ->get();
+
+        return Theme::partial('shortcodes.clients', compact('testimonials'));
     });
 
     shortcode()->setAdminConfig('clients', function (array $attributes) {
@@ -233,8 +236,9 @@ app()->booted(function () {
     });
 
     add_shortcode('blog-home', __('blog-home'), __('blog-home'), function (Shortcode $shortcode) {
-        $field = '';
-        return Theme::partial('shortcodes.blog-home', compact('field'));
+        $posts = app(PostInterface::class)->getRecentPosts(3);
+
+        return Theme::partial('shortcodes.blog-home', compact('posts'));
     });
 
     shortcode()->setAdminConfig('blog-home', function (array $attributes) {
