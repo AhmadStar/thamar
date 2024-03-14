@@ -14,6 +14,8 @@
                 --primary-color: {{ theme_option('primary_color', '#FF324D') }};
                 --color-2nd: {{ theme_option('secondary_color', '#1D2224') }};
                 --secondary-color: {{ theme_option('secondary_color', '#1D2224') }};
+                --3-color:  #22AC9B;
+                --4-color: {{ theme_option('forth_color', '#1F90A6') }};
                 --primary-font: '{{ theme_option('primary_font', 'Poppins') }}', sans-serif;
             }
         </style>
@@ -43,7 +45,7 @@
                     <div class="col-lg-7 col-md-6">
                         <div class="top-head-left">
                             <div class="top-contact">
-                                <h3>Support By : <a href="tel:+1(212)-255-5511">+1 (212) 255-5511</a></h3>
+                                <h3>{{__('phone')}} : <a href="tel:{{theme_option('hotline')}}">{{theme_option('hotline')}}</a></h3>
                             </div>
                         </div>
                     </div>

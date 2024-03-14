@@ -61,13 +61,7 @@ class ProjectsForm extends FormAbstract
                     'data-counter' => 120,
                 ],
             ])
-            ->add('youtube', 'text', [
-                'label'      => trans('Youtube'),
-                'label_attr' => ['class' => 'control-label '],
-                'attr'       => [
-                    'data-counter' => 120,
-                ],
-            ])
+          
 
             ->add('content', 'editor', [
                 'label' => __('content'),
@@ -103,25 +97,8 @@ class ProjectsForm extends FormAbstract
                 ],
                 'choices'    => BaseStatusEnum::labels(),
             ])
-            ->add('category_id', 'select', [
-                'label'      => __('Category'),
-                'label_attr' => ['class' => 'control-label required'],
-                'choices'    => $categories,
-            ])
-
-            ->add('gallery_id', 'select', [
-                'label'      => __('Gallery'),
-                'label_attr' => ['class' => 'control-label required'],
-                'choices'    => $galleries,
-            ])
-            ->add('header_img', 'mediaImage', [
-                'label' => __('Header Image'),
-                'label_attr' => ['class' => 'control-label'],
-            ])
-            ->add('voice_banner', 'mediaImage', [
-                'label' => __('Voice Banner'),
-                'label_attr' => ['class' => 'control-label'],
-            ])
+           
+            
             ->add('services[]', 'servicesMulti', [
                 'label'      => trans('Services'),
                 'label_attr' => ['class' => 'control-label required'],

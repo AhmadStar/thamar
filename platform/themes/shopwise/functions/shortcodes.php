@@ -188,8 +188,12 @@ app()->booted(function () {
     });
 
     add_shortcode('case-study', __('case-study'), __('case-study'), function (Shortcode $shortcode) {
-        $field = '';
-        return Theme::partial('shortcodes.case-study', compact('shortcode'));
+       
+        $projects = Botble\Projects\Models\Projects::query()
+            ->wherePublished()
+            ->limit(4)
+            ->get();
+        return Theme::partial('shortcodes.case-study', compact('shortcode','projects'));
     });
 
     shortcode()->setAdminConfig('case-study', function (array $attributes) {

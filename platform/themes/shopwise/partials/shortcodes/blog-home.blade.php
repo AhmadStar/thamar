@@ -22,7 +22,7 @@
                     <div class="content">
                         <ul>
                             <li>
-                                <a href="index.html"><i class='bx bx-purchase-tag-alt'></i>{{ $post->categories->first()->name }}</a>
+                                <i class='bx bx-purchase-tag-alt'></i>{{ $post->categories->first()->name }}
                             </li>
                         </ul>
 
@@ -30,7 +30,7 @@
                             <a href="{{ $post->url }}">{{ $post->name }}</a>
                         </h3>
                         <p>{{ $post->description }}</p>
-                        <a href="{{ $post->url }}" class="read-btn">{{ __("Read More") }} <i class='bx bx-chevron-right'></i></a>
+                        <a href="{{ $post->url }}" class="read-btn">{{ __("Read More") }} </a>
                     </div>
                 </div>
             </div>

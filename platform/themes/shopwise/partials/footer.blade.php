@@ -6,115 +6,75 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html">
-                                <img src="themes/shopwise/assets/images/logos/footer-logo.png" alt="Images">
+                            <a href="/">
+                                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="Images">
                             </a>
                         </div>
                         <p>
-                            Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auct.Aenean, lorem quis bibendum auct. Aenean sollicitudin lorem.
+                          {{theme_option('about-us')}}
                         </p>
                         <div class="footer-call-content">
-                            <h3>Talk to Our Support</h3>
-                            <span><a href="tel:+1002-123-4567">+1 002-123-4567</a></span>
-                            <i class='bx bx-headphone'></i>
+                            <h3>{{__('Get A Quote')}}</h3>
+                            <span><a href="tel:{{theme_option('hotline')}}">{{theme_option('hotline')}}</a></span>
+                            <i class='fa fa-phone'></i>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-sm-6">
                     <div class="footer-widget pl-2">
-                        <h3>Services</h3>
+                        <?php
+                        $services = \Botble\Services\Models\Services::query()
+                                ->wherePublished()
+                               // ->where('service_type','=',1)
+                                ->limit(8)
+                                ->get();
+                        ?>
+                        <h3>{{__('Services')}}</h3>
                         <ul class="footer-list">
+                            @foreach($services as $service)
                             <li>
-                                <a href="service-details.html" target="_blank">
+                                <a href="/" target="_blank">
                                     <i class='bx bx-chevron-right'></i>
-                                    IT Consultancy
+                                    {{$service->name}}
                                 </a>
                             </li>
-                            <li>
-                                <a href="service-details.html" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
-                                    Business Solution
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service-details.html" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
-                                    Digital Services
-                                </a>
-                            </li>
-                            <li>
-                                <a href="compare.html" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
-                                    Business Reform
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service-details.html" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
-                                    Web Development
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service-details.html" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
-                                    Cloud Computing
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service-details.html" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
-                                    Data Analysis
-                                </a>
-                            </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-sm-6">
                     <div class="footer-widget pl-5">
-                        <h3>Our Blog</h3>
+                        <?php
+                        $posts = app(\Botble\Blog\Repositories\Interfaces\PostInterface::class)->getFeatured(3);
+                                ?>
+                        <h3>{{__('Our Blog')}}</h3>
                          <ul class="footer-blog">
+                             @foreach($posts as $post)
                             <li>
-                                <a href="blog-details.html">
-                                    <img src="themes/shopwise/assets/images/blog/blog-img-footer.jpg" alt="Images">
+                                <a href="{{$post->url}}">
+                                    <img src="{{ RvMedia::getImageUrl($post->image,'small') }}" alt="Images">
                                 </a>
                                 <div class="content">
-                                    <h3><a href="blog-details.html">Product Idea Solution For New Generation</a></h3>
-                                    <span>04 Dec 2024</span>
+                                    <h3><a href="{{$post->url}}">{{$post->name}}</a></h3>
+                                    <span>{{ $post->created_at->translatedFormat('M d, Y')}}</span>
                                 </div>
                             </li>
+                             @endforeach
 
-                            <li>
-                                <a href="blog-details.html">
-                                    <img src="themes/shopwise/assets/images/blog/blog-img-footer2.jpg" alt="Images">
-                                </a>
-                                <div class="content">
-                                    <h3><a href="blog-details.html">New Device Invention for Digital Platform</a></h3>
-                                    <span>07 Dec 2024</span>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a href="blog-details.html">
-                                    <img src="themes/shopwise/assets/images/blog/blog-img-footer3.jpg" alt="Images">
-                                </a>
-                                <div class="content">
-                                    <h3><a href="blog-details.html">Business Strategy Make His Goal Acheive</a></h3>
-                                    <span>10 Dec 2024</span>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-sm-6">
                     <div class="footer-widget">
-                        <h3>Newsletter</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus molestie molestie. Phasellus ac rutrum massa, et volutpat nisl. Fusce ultrices suscipit nisl.</p>
+                        <h3>{{__('Newsletter')}}</h3>
+                        <p>{{__('Subscribe to our Newsletter')}}</p>
                         <div class="newsletter-area">
                             <form class="newsletter-form" data-toggle="validator" method="POST">
-                                <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL" required autocomplete="off">
+                                <input type="email" class="form-control" placeholder="{{__('Enter Your Email')}}" name="EMAIL" required autocomplete="off">
                                 <button class="subscribe-btn" type="submit">
                                     <i class='bx bx-paper-plane'></i>
                                 </button>
@@ -129,8 +89,8 @@
         <div class="copy-right-area">
             <div class="copy-right-text">
                 <p>
-                    Copyright © <script>document.write(new Date().getFullYear())</script> Techex. All Rights Reserved by
-                    <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+
+                     {{theme_option('copyright')}}
                 </p>
             </div>
         </div>

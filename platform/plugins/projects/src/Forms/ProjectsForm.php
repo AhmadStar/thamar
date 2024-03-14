@@ -12,9 +12,11 @@ class ProjectsForm extends FormAbstract
     public function buildForm(): void
     {
 
-        $services = Services::getAllLangServices();
-
-
+        $services = \Botble\Services\Models\Services::query()
+            ->wherePublished()
+            ->limit(8)
+            ->pluck('name', 'id')
+            ->toArray();
         $this
             ->setupModel(new Projects)
             ->setValidatorClass(ProjectsRequest::class)
@@ -55,13 +57,31 @@ class ProjectsForm extends FormAbstract
                 ],
                 'choices'    => BaseStatusEnum::labels(),
             ])
-
+            ->add('company_logo', 'mediaImage', [
+                'label' => __('Company Logo'),
+                'label_attr' => ['class' => 'control-label'],
+            ])
+            ->add('company', 'text', [
+                'label'      => __('Company Name'),
+                'label_attr' => ['class' => 'control-label required'],
+                'attr'       => [
+                    'data-counter' => 120,
+                ],
+            ])
+            ->add('company_link', 'text', [
+                'label'      => __('Company Link'),
+                'label_attr' => ['class' => 'control-label required'],
+                'attr'       => [
+                    'data-counter' => 120,
+                ],
+            ])
             ->add('service_id', 'customSelect', [
                 'label'      => trans('Service'),
                 'label_attr' => ['class' => 'control-label required'],
                 'choices'    => $services,
 
             ])
+
             ->setBreakFieldPoint('status');
     }
 }
