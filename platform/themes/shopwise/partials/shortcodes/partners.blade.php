@@ -5,7 +5,7 @@
         <div class="brand-slider owl-carousel owl-theme">
             @foreach ($partners as $partner)
             <div class="brand-item">
-                    <img src="{{ RvMedia::getImageUrl($partner->logo) }}" alt="{{$partner->name}}">
+                    <img src="{{ RvMedia::getImageUrl($partner->logo) }}" alt="{{$partner->name}}" loading="lazy">
             </div>
             @endforeach
         </div>

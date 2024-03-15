@@ -4,7 +4,7 @@
 @endphp
 
 <!-- Build Area -->
-<div class="build-area pt-100 pb-70">
+<div id="build-area" class="build-area pt-100 pb-70">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 col-md-8">

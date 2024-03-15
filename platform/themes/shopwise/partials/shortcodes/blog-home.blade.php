@@ -12,7 +12,7 @@
                 <div class="blog-card">
                     <div class="blog-img">
                         <a href="{{ $post->url }}">
-                            <img src="{{ RvMedia::getImageUrl($post->image, 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}">
+                            <img src="{{ RvMedia::getImageUrl($post->image, 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}" loading="lazy">
                         </a>
                         <div class="blog-tag">
                             <h3>{{ $post->created_at->format('d') }}</h3>

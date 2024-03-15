@@ -11,7 +11,7 @@
 
                 <div class="clients-content">
                     <div class="content">
-                        <img src="{{ RvMedia::getImageUrl($testimonial->image, null, false, RvMedia::getDefaultImage()) }}" alt="{{ $testimonial->name }}">
+                        <img src="{{ RvMedia::getImageUrl($testimonial->image, null, false, RvMedia::getDefaultImage()) }}" alt="{{ $testimonial->name }}" loading="lazy">
                         <i class='bx bxs-quote-alt-left'></i>
                         <h3>{{ $testimonial->name }}</h3>
                         <span>{{ $testimonial->company }}</span>

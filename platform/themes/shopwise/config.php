@@ -40,22 +40,6 @@ return [
         'beforeRenderTheme' => function (Theme $theme) {
             $version = get_cms_version();
 
-            // You may use this event to set up your assets.
-            // $theme->asset()->usePath()->add('animate', 'css/animate.css');
-            // $theme->asset()->usePath()->add('bootstrap-css', 'plugins/bootstrap/css/bootstrap.min.css');
-            // $theme->asset()->usePath()->add('ionicons', 'css/ionicons.min.css');
-            // $theme->asset()->usePath()->add('themify-icons', 'css/themify-icons.css');
-            // $theme->asset()->usePath()->add('linearicons', 'css/linearicons.css');
-            // $theme->asset()->usePath()->add('flaticon', 'css/flaticon.css');
-            // $theme->asset()->usePath()->add('simple-line-icons', 'css/simple-line-icons.css');
-            // $theme->asset()->usePath()->add('owl.carousel', 'plugins/owlcarousel/css/owl.carousel.min.css');
-            // $theme->asset()->usePath()->add('owl.theme', 'plugins/owlcarousel/css/owl.theme.css');
-            // $theme->asset()->usePath()->add('owl.theme.default', 'plugins/owlcarousel/css/owl.theme.default.min.css');
-            // $theme->asset()->usePath()->add('slick-theme-css', 'plugins/slick/slick-theme.css');
-            // $theme->asset()->usePath()->add('slick-css', 'plugins/slick/slick.css');
-            // $theme->asset()->usePath()->add('magnific-popup-css', 'css/magnific-popup.css');
-            // $theme->asset()->usePath()->add('style', 'css/style.css', [], [], $version);
-
             $theme->asset()->usePath()->add('bootstrapcss', 'assets/css/bootstrap.min.css');
             $theme->asset()->usePath()->add('animatecss', 'assets/css/animate.min.css');
             $theme->asset()->usePath()->add('flaticoncss', 'assets/fonts/flaticon.css');
@@ -81,18 +65,6 @@ return [
 
             }
 
-            // $theme->asset()->container('header')->usePath()->add('jquery', 'js/jquery-3.6.0.min.js');
-            // $theme->asset()->container('footer')->usePath()->add('popper', 'js/popper.min.js', ['jquery']);
-            // $theme->asset()->container('footer')->usePath()->add('bootstrap-js', 'plugins/bootstrap/js/bootstrap.min.js', ['jquery']);
-            // $theme->asset()->container('footer')->usePath()->add('magnific-popup-js', 'js/magnific-popup.min.js', ['jquery']);
-            // $theme->asset()->container('footer')->usePath()->add('waypoints', 'js/waypoints.min.js', ['jquery'], [], '4.0.1');
-            // $theme->asset()->container('footer')->usePath()->add('slick-js', 'plugins/slick/slick.min.js');
-            // $theme->asset()->container('footer')->usePath()->add('carousel-js', 'plugins/owlcarousel/js/owl.carousel.min.js', ['jquery']);
-            // $theme->asset()->container('footer')->usePath()->add('elevatezoom-js', 'js/jquery.elevatezoom.js', ['jquery']);
-            // $theme->asset()->container('footer')->usePath()->add('countdown', 'js/jquery.countdown.min.js', ['jquery']);
-            // $theme->asset()->container('footer')->usePath()->add('scripts', 'js/scripts.js', ['jquery', 'jquery-ui-js'], [], $version);
-            // $theme->asset()->container('footer')->usePath()->add('backend-js', 'js/backend.js', ['jquery', 'jquery-ui-js'], [], $version);
-
             $theme->asset()->container('header')->usePath()->add('jquery', 'assets/js/jquery.min.js');
             $theme->asset()->container('footer')->usePath()->add('bootstrapjs', 'assets/js/bootstrap.bundle.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('carouseljs', 'assets/js/owl.carousel.min.js', ['jquery']);
@@ -100,9 +72,9 @@ return [
             $theme->asset()->container('footer')->usePath()->add('selectjs', 'assets/js/jquery.nice-select.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('wowjs', 'assets/js/wow.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('meanmenujs', 'assets/js/meanmenu.js', ['jquery']);
-            $theme->asset()->container('footer')->usePath()->add('ajaxchimpjs', 'assets/js/jquery.ajaxchimp.min.js', ['jquery']);
-            $theme->asset()->container('footer')->usePath()->add('validatorjs', 'assets/js/form-validator.min.js', ['jquery']);
-            $theme->asset()->container('footer')->usePath()->add('contactjs', 'assets/js/contact-form-script.js', ['jquery']);
+            // $theme->asset()->container('footer')->usePath()->add('ajaxchimpjs', 'assets/js/jquery.ajaxchimp.min.js', ['jquery']);
+            // $theme->asset()->container('footer')->usePath()->add('validatorjs', 'assets/js/form-validator.min.js', ['jquery']);
+            // $theme->asset()->container('footer')->usePath()->add('contactjs', 'assets/js/contact-form-script.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('customjs', 'assets/js/custom.js', ['jquery']);
 
 

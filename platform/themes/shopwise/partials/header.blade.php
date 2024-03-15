@@ -14,6 +14,29 @@
         1F90A6
          --}}
 
+         @php
+        Theme::asset()->remove('language-css');
+        Theme::asset()->remove('ckeditor-content-styles');
+        // Theme::asset()
+        // ->container('footer')
+        // ->remove('language-public-js');
+        // Theme::asset()
+        // ->container('footer')
+        // ->remove('simple-slider-owl-carousel-css');
+        // Theme::asset()
+        // ->container('footer')
+        // ->remove('simple-slider-owl-carousel-js');
+        // Theme::asset()
+        // ->container('footer')
+        // ->remove('simple-slider-css');
+        // Theme::asset()
+        // ->container('footer')
+        // ->remove('simple-slider-js');
+        // Theme::asset()
+        // ->container('header')
+        // ->remove('content-styles');
+        @endphp
+
         <style>
             :root {
                 --color-1st: {{ theme_option('primary_color', '#FF324D') }};

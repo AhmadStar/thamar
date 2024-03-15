@@ -241,16 +241,17 @@
     setInterval(function() { makeTimer(); }, 300);
 
     // Subscribe form
-    $(".newsletter-form").validator().on("submit", function (event) {
-        if (event.isDefaultPrevented()) {
-            // Handle The Invalid Form...
-            formErrorSub();
-            submitMSGSub(false, "Please enter your email correctly");
-        } else {
-            // Everything Looks Good!
-            event.preventDefault();
-        }
-    });
+    // $(".newsletter-form").validator().on("submit", function (event) {
+    //     if (event.isDefaultPrevented()) {
+    //         // Handle The Invalid Form...
+    //         formErrorSub();
+    //         submitMSGSub(false, "Please enter your email correctly");
+    //     } else {
+    //         // Everything Looks Good!
+    //         event.preventDefault();
+    //     }
+    // });
+
     function callbackFunction (resp) {
         if (resp.result === "success") {
             formSuccessSub();

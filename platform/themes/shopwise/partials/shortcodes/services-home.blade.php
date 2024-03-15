@@ -11,7 +11,7 @@
             @foreach($services as $service)
             <div class="col-lg-4 col-sm-6">
                 <div class="security-card">
-                    <img src="{{ RvMedia::getImageUrl($service->icon) }}" alt="{{$service->name}}">
+                    <img src="{{ RvMedia::getImageUrl($service->icon) }}" alt="{{$service->name}}" loading="lazy">
                     <h3><a href="/">{{$service->name}}</a></h3>
                     <p>{{$service->summary}}</p>
                 </div>
