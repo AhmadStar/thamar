@@ -1,3 +1,8 @@
+@php
+    app()->getLocale() == 'ar' ? ($dir = 'left') : ($dir = 'right');
+    $lang = app()->getLocale();
+@endphp
+
 <!-- Case Study Area -->
 <div class="case-study-area pb-70">
     <div class="container-fluid p-0">
@@ -11,15 +16,15 @@
 
             @foreach($projects as $project)
                 <div class="case-study-item">
-                    <a href="case-details.html">
+                    <a href="/{{$lang}}/project/{{$project->slug}}">
                         <img src="{{ RvMedia::getImageUrl($project->image,'medium') }}" alt="Images">
                     </a>
                     <div class="content">
-                        <h3><a href="case-details.html">{{$project->name}}</a></h3>
+                        <h3><a href="/{{$lang}}/project/{{$project->slug}}">{{$project->name}}</a></h3>
                         <ul>
-                            <li><a href="">{{$project->company}}</a></li>
+                            <li><a href="/{{$lang}}/project/{{$project->slug}}">{{$project->company}}</a></li>
                         </ul>
-                        <a href="" class="more-btn"><i class='bx bx-right-arrow-alt'></i></a>
+                        <a href="/{{$lang}}/project/{{$project->slug}}" class="more-btn"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
                 </div>
             @endforeach
