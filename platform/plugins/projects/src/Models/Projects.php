@@ -15,6 +15,7 @@ class Projects extends BaseModel
 
     protected $fillable = [
         'name',
+        'slug',
         'image',
         'summary',
         'content',

@@ -1032,15 +1032,15 @@ Main Banner Area
 }
 
 .item-bg1 {
-  background-image: url(../images/home-one/home-one-img1.jpg);
+  background-image: url(../assets/images/home-one/home-one-img1.jpg);
 }
 
 .item-bg2 {
-  background-image: url(../images/home-one/home-one-img2.jpg);
+  background-image: url(../assets/images/home-one/home-one-img2.jpg);
 }
 
 .item-bg3 {
-  background-image: url(../images/home-one/home-one-img3.jpg);
+  background-image: url(../assets/images/home-one/home-one-img3.jpg);
 }
 
 .banner-area {
@@ -1049,7 +1049,7 @@ Main Banner Area
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../images/home-two.jpg);
+  background-image: url(../assets/images/home-two.jpg);
 }
 .banner-area::before {
   content: "";
@@ -1176,7 +1176,7 @@ Main Banner Area
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(../images/home-four/home-four-bg.png);
+  background-image: url(../assets/images/home-four/home-four-bg.png);
   opacity: 0.8;
 }
 
@@ -1993,7 +1993,7 @@ Services Area
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../images/services/services-bg.png);
+  background-image: url(../assets/images/services/services-bg.png);
 }
 .services-area-two .section-title h2 {
   max-width: 500px;
@@ -2181,7 +2181,7 @@ Work Area
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../images/shape/bg-shape.png);
+  background-image: url(../assets/images/shape/bg-shape.png);
 }
 .work-process-left .section-title {
   margin-bottom: 30px;
@@ -2288,7 +2288,7 @@ Work Area
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../images/shape/bg-shape2.png);
+  background-image: url(../assets/images/shape/bg-shape2.png);
 }
 .work-process-right .section-title {
   margin-bottom: 30px;
@@ -2684,7 +2684,7 @@ Build Area
   right: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/build/build-play-bg.jpg);
+  background-image: url(../assets/images/build/build-play-bg.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2770,7 +2770,7 @@ Build Area End
 }
 
 .talk-area-two {
-  background-image: url(../images/talk-bg2.jpg);
+  background-image: url(../assets/images/talk-bg2.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2806,7 +2806,7 @@ Build Area End
   right: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/call-us/call-shap1.png);
+  background-image: url(../assets/images/call-us/call-shap1.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -3138,7 +3138,7 @@ Case Study Area
   right: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/build/build-play-bg.jpg);
+  background-image: url(../assets/images/build/build-play-bg.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -3268,7 +3268,7 @@ Technology Area
 .technology-area {
   position: relative;
   z-index: 1;
-  background-image: url(../images/technology-img.jpg);
+  background-image: url(../assets/images/technology-img.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3356,7 +3356,7 @@ Technology Area
   right: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/shape/bg-shape3.png);
+  background-image: url(../assets/images/shape/bg-shape3.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3400,7 +3400,7 @@ Technology Area
 .technology-play-area {
   padding: 200px 0;
   text-align: center;
-  background-image: url(../images/technology-img2.jpg);
+  background-image: url(../assets/images/technology-img2.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -3728,7 +3728,7 @@ Clients Area
   height: 100%;
   left: 0;
   right: 0;
-  background-image: url(../images/shape/bg-shape5.png);
+  background-image: url(../assets/images/shape/bg-shape5.png);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4537,16 +4537,16 @@ Blog Area End
   background-color: #070b3b;
 }
 .side-bar-widget .widget-popular-post .item .thumb .full-image.bg1 {
-  background-image: url(../images/blog/blog-details.jpg);
+  background-image: url(../assets/images/blog/blog-details.jpg);
 }
 .side-bar-widget .widget-popular-post .item .thumb .full-image.bg2 {
-  background-image: url(../images/blog/blog-img2.jpg);
+  background-image: url(../assets/images/blog/blog-img2.jpg);
 }
 .side-bar-widget .widget-popular-post .item .thumb .full-image.bg3 {
-  background-image: url(../images/blog/blog-img3.jpg);
+  background-image: url(../assets/images/blog/blog-img3.jpg);
 }
 .side-bar-widget .widget-popular-post .item .thumb .full-image.bg4 {
-  background-image: url(../images/blog/blog-img1.jpg);
+  background-image: url(../assets/images/blog/blog-img1.jpg);
 }
 .side-bar-widget .widget-popular-post .item .info {
   overflow: hidden;
@@ -5079,7 +5079,7 @@ Contact Area
   right: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/call-us/call-shap1.png);
+  background-image: url(../assets/images/call-us/call-shap1.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -5674,7 +5674,7 @@ Home Page Six Css
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../images/home-six.jpg);
+  background-image: url(../assets/images/home-six.jpg);
   overflow: hidden;
 }
 .banner-six::before {
@@ -5769,7 +5769,7 @@ Home Page Six Css
   height: 100%;
   left: 0;
   right: 0;
-  background-image: url(../images/clients-img/client-bg.png);
+  background-image: url(../assets/images/clients-img/client-bg.png);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5968,7 +5968,7 @@ Home Page Six Css
   height: 100%;
   left: 0;
   right: 0;
-  background-image: url(../images/shape/bg-shape5.png);
+  background-image: url(../assets/images/shape/bg-shape5.png);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

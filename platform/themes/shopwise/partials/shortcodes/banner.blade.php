@@ -1,7 +1,8 @@
-{{-- @php
-    dd($shortcode);
-@endphp --}}
-<!-- Banner Area Two -->
+@php
+    app()->getLocale() == 'ar' ? ($dir = 'left') : ($dir = 'right');
+    $lang = app()->getLocale();
+@endphp
+
 <div class="banner-area-two">
     <div class="container-fluid">
         <div class="container-max">
@@ -13,17 +14,17 @@
                             {{-- {{$shortcode->content_1}} --}}
                         </p>
                         <div class="banner-btn">
-                            <a href="about.html" class="default-btn btn-bg-two border-radius-50">{{__('Learn More')}} <i class='bx bx-chevron-right'></i></a>
-                            <a href="contact.html" class="default-btn btn-bg-one border-radius-50 ml-20">{{__('Contact Us')}} <i class='bx bx-chevron-right'></i></a>
+                            <a href="/{{ $lang }}/about-us" class="default-btn btn-bg-two border-radius-50">{{__('Learn More')}} <i class='bx bx-chevron-right'></i></a>
+                            <a href="/{{ $lang }}/contact-us" class="default-btn btn-bg-one border-radius-50 ml-20">{{__('Contact Us')}} <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-7">
                     <div class="banner-img">
-                        <img src="{{ RvMedia::getImageUrl($shortcode->image) }}" alt="Images">
+                        <img src="{{ RvMedia::getImageUrl($shortcode->image) }}" alt="{{$shortcode->title}}">
                         <div class="banner-img-shape">
-                            <img src="themes/shopwise/assets/images/home-three/home-three-shape.png" alt="Images">
+                            <img src="themes/shopwise/assets/images/home-three/home-three-shape.png" alt="{{$shortcode->title}}" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -34,7 +35,7 @@
     <div class="container" dir="ltr">
         <div class="banner-sub-slider owl-carousel owl-theme">
             <div class="banner-sub-item">
-                <img src="{{ RvMedia::getImageUrl($shortcode->achievement1img) }}" alt="Images">
+                <img src="{{ RvMedia::getImageUrl($shortcode->achievement1img) }}" alt="{{ $shortcode->achievement1 }}" loading="lazy">
                 <div class="content">
                     <h3>{{ $shortcode->achievement1 }}</h3>
                     <span>{{ $shortcode->achievement1text }}</span>
@@ -42,7 +43,7 @@
             </div>
 
             <div class="banner-sub-item">
-                <img src="{{ RvMedia::getImageUrl($shortcode->achievement2img) }}" alt="Images">
+                <img src="{{ RvMedia::getImageUrl($shortcode->achievement2img) }}" alt="{{ $shortcode->achievement2 }}" loading="lazy">
                 <div class="content">
                     <h3>{{ $shortcode->achievement2 }}</h3>
                     <span>{{ $shortcode->achievement2text }}</span>
@@ -50,7 +51,7 @@
             </div>
 
             <div class="banner-sub-item">
-                <img src="{{ RvMedia::getImageUrl($shortcode->achievement3img) }}" alt="Images">
+                <img src="{{ RvMedia::getImageUrl($shortcode->achievement3img) }}" alt="{{ $shortcode->achievement3 }}" loading="lazy">
                 <div class="content">
                     <h3>{{ $shortcode->achievement3 }}</h3>
                     <span>{{ $shortcode->achievement3text }}</span>

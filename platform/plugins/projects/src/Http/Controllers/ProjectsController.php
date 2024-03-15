@@ -35,6 +35,9 @@ class ProjectsController extends BaseController
     public function store(ProjectsRequest $request, BaseHttpResponse $response)
     {
         $projects = Projects::query()->create($request->input());
+        $projects->slug = $this->slug($projects->name, '-');
+
+        $projects->save();
 
         event(new CreatedContentEvent(PROJECTS_MODULE_SCREEN_NAME, $request, $projects));
 
@@ -54,6 +57,8 @@ class ProjectsController extends BaseController
     public function update(Projects $projects, ProjectsRequest $request, BaseHttpResponse $response)
     {
         $projects->fill($request->input());
+
+        $projects->slug = $this->slug($projects->name, '-');
 
         $projects->save();
 
@@ -78,4 +83,24 @@ class ProjectsController extends BaseController
                 ->setMessage($exception->getMessage());
         }
     }
+
+    public function slug($string, $separator = '-') {
+        if (is_null($string)) {
+            return "";
+        }
+
+        $string = trim($string);
+
+        $string = mb_strtolower($string, "UTF-8");;
+
+        $string = preg_replace("/[^a-z0-9_\sءاأإآؤئبتثجحخدذرزسشصضطظعغفقكلمنهويةى]#u/", "", $string);
+
+        $string = preg_replace("/[\s-]+/", " ", $string);
+
+        $string = preg_replace("/[\s_]/", $separator, $string);
+
+        return $string;
+    }
+
+
 }

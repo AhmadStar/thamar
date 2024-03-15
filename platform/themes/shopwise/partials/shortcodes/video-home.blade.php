@@ -1,3 +1,8 @@
+@php
+    app()->getLocale() == 'ar' ? ($dir = 'left') : ($dir = 'right');
+    $lang = app()->getLocale();
+@endphp
+
 <!-- Build Area -->
 <div class="build-area pt-100 pb-70">
     <div class="container">
@@ -13,7 +18,7 @@
 
             <div class="col-lg-4 col-md-4">
                 <div class="build-btn-area">
-                    <a href="/" class="default-btn btn-bg-two border-radius-50">{{__('Contact Us')}} <i class='bx bx-chevron-right'></i></a>
+                    <a href="/{{ $lang }}/contact-us" class="default-btn btn-bg-two border-radius-50">{{__('Contact Us')}} <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>

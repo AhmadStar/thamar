@@ -58,7 +58,6 @@ class ServicesController extends BaseController
         $services->fill($request->input());
         $services->slug = $this->slug($services->name, '-');
 
-
         $services->save();
 
         event(new UpdatedContentEvent(SERVICES_MODULE_SCREEN_NAME, $request, $services));
@@ -67,6 +66,7 @@ class ServicesController extends BaseController
             ->setPreviousUrl(route('services.index'))
             ->setMessage(trans('core/base::notices.update_success_message'));
     }
+
     public function slug($string, $separator = '-') {
         if (is_null($string)) {
             return "";
@@ -84,6 +84,7 @@ class ServicesController extends BaseController
 
         return $string;
     }
+
     public function destroy(Services $services, Request $request, BaseHttpResponse $response)
     {
         try {

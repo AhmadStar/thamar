@@ -2,7 +2,7 @@
     @if(! $width && ! $height)
         style="position: relative; display: block; height: 0; padding-bottom: 56.25%; overflow: hidden;"
     @else
-        style="margin-bottom: 20px;"
+        style="margin-bottom: 0px;"
     @endif
 >
         <iframe

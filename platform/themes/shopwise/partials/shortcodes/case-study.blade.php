@@ -17,7 +17,7 @@
             @foreach($projects as $project)
                 <div class="case-study-item">
                     <a href="/{{$lang}}/project/{{$project->slug}}">
-                        <img src="{{ RvMedia::getImageUrl($project->image,'medium') }}" alt="Images">
+                        <img src="{{ RvMedia::getImageUrl($project->image,'medium') }}" alt="{{$project->name}}" loading="lazy">
                     </a>
                     <div class="content">
                         <h3><a href="/{{$lang}}/project/{{$project->slug}}">{{$project->name}}</a></h3>
@@ -28,9 +28,6 @@
                     </div>
                 </div>
             @endforeach
-
-
-
         </div>
     </div>
 </div>

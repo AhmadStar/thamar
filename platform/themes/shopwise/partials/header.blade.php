@@ -54,7 +54,7 @@
                                 {{theme_option('hotline')}}
                             </a>
                             |
-                            <a href="tel:{{theme_option('email')}}" target="_blank" class="head-ahref" dir="ltr">
+                            <a href="mailto:{{theme_option('email')}}" target="_blank" class="head-ahref" dir="ltr">
                                 {{theme_option('email')}}
                             </a>
                         </div>

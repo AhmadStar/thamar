@@ -149,6 +149,16 @@ app()->booted(function () {
         return Theme::partial('shortcodes.about-home-admin-config', compact('attributes'));
     });
 
+
+    add_shortcode('about-us', __('about-us'), __('about-us'), function (Shortcode $shortcode) {
+
+        return Theme::partial('shortcodes.about-us', compact('shortcode'));
+    });
+
+    shortcode()->setAdminConfig('about-us', function (array $attributes) {
+        return Theme::partial('shortcodes.about-us-admin-config', compact('attributes'));
+    });
+
     add_shortcode('services-home', __('services-home'), __('services-home'), function (Shortcode $shortcode) {
         $field = '';
         $services = \Botble\Services\Models\Services::query()

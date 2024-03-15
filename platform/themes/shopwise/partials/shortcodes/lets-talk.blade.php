@@ -1,4 +1,8 @@
-<!-- Talk Area -->
+@php
+    app()->getLocale() == 'ar' ? ($dir = 'left') : ($dir = 'right');
+    $lang = app()->getLocale();
+@endphp
+
 <div class="talk-area ptb-100">
     <div class="container">
         <div class="talk-content text-center">
@@ -7,9 +11,8 @@
                 <h2>{{$shortcode->content_1}}</h2>
 
             </div>
-            <a href="/" class="default-btn btn-bg-two border-radius-5">{{__('Contact Us')}}</a>
+            <a href="/{{ $lang }}/contact-us" class="default-btn btn-bg-two border-radius-5">{{__('Contact Us')}}</a>
         </div>
     </div>
 </div>
-<!-- Talk Area End -->
 
