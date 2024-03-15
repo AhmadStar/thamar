@@ -13,6 +13,7 @@ use Botble\SimpleSlider\Models\SimpleSlider;
 use Botble\Testimonial\Models\Testimonial;
 use Botble\Theme\Facades\Theme;
 use Botble\Theme\Supports\ThemeSupport;
+use Botble\Partners\Models\Partners;
 
 app()->booted(function () {
     ThemeSupport::registerGoogleMapsShortcode();
@@ -188,7 +189,7 @@ app()->booted(function () {
     });
 
     add_shortcode('case-study', __('case-study'), __('case-study'), function (Shortcode $shortcode) {
-       
+
         $projects = Botble\Projects\Models\Projects::query()
             ->wherePublished()
             ->limit(4)
@@ -219,8 +220,12 @@ app()->booted(function () {
     });
 
     add_shortcode('partners', __('partners'), __('partners'), function (Shortcode $shortcode) {
-        $field = '';
-        return Theme::partial('shortcodes.partners', compact('field'));
+
+        $partners = Partners::query()
+            ->where(['status' => BaseStatusEnum::PUBLISHED])
+            ->get();
+
+        return Theme::partial('shortcodes.partners', compact('partners'));
     });
 
     shortcode()->setAdminConfig('partners', function (array $attributes) {

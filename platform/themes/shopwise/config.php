@@ -66,6 +66,7 @@ return [
             $theme->asset()->usePath()->add('nicecss', 'assets/css/nice-select.min.css');
             $theme->asset()->usePath()->add('meanmenucss', 'assets/css/meanmenu.css');
             $theme->asset()->usePath()->add('style', 'assets/css/style.css');
+            $theme->asset()->usePath()->add('custome-style', 'assets/css/custome-style.css');
             $theme->asset()->usePath()->add('responsive', 'assets/css/responsive.css');
             $theme->asset()->usePath()->add('themedark', 'assets/css/theme-dark.css');
 

@@ -8,12 +8,18 @@
 
         {!! BaseHelper::googleFonts('https://fonts.googleapis.com/css2?family=' . urlencode(theme_option('primary_font', 'Poppins')) . ':wght@200;300;400;500;600;700;800;900&display=swap') !!}
 
+        {{--
+        006A62
+        22AC9B
+        1F90A6
+         --}}
+
         <style>
             :root {
                 --color-1st: {{ theme_option('primary_color', '#FF324D') }};
                 --primary-color: {{ theme_option('primary_color', '#FF324D') }};
-                --color-2nd: {{ theme_option('secondary_color', '#1D2224') }};
-                --secondary-color: {{ theme_option('secondary_color', '#1D2224') }};
+                --color-2nd: {{ theme_option('secondary_color', '#1F90A6') }};
+                --secondary-color: {{ theme_option('secondary_color', '#1F90A6') }};
                 --3-color:  #22AC9B;
                 --4-color: {{ theme_option('forth_color', '#1F90A6') }};
                 --primary-font: '{{ theme_option('primary_font', 'Poppins') }}', sans-serif;
@@ -44,47 +50,36 @@
                 <div class="row align-items-center">
                     <div class="col-lg-7 col-md-6">
                         <div class="top-head-left">
-                            <div class="top-contact">
-                                <h3>{{__('phone')}} : <a href="tel:{{theme_option('hotline')}}">{{theme_option('hotline')}}</a></h3>
-                            </div>
+                            <a href="tel:{{theme_option('hotline')}}" target="_blank" class="head-ahref" dir="ltr">
+                                {{theme_option('hotline')}}
+                            </a>
+                            |
+                            <a href="tel:{{theme_option('email')}}" target="_blank" class="head-ahref" dir="ltr">
+                                {{theme_option('email')}}
+                            </a>
                         </div>
                     </div>
 
                     <div class="col-lg-5 col-md-6">
                         <div class="top-header-right">
+                            @if (theme_option('social_links') && $socialLinks = json_decode(theme_option('social_links'), true))
                             <div class="top-header-social">
                                 <ul>
-                                    <li>
-                                        <a href="https://www.facebook.com/" target="_blank">
-                                            <i class='bx bxl-facebook'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/?lang=en" target="_blank">
-                                            <i class='bx bxl-twitter'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
-                                            <i class='bx bxl-linkedin-square'></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <i class='bx bxl-instagram'></i>
-                                        </a>
-                                    </li>
+                                    @foreach($socialLinks as $socialLink)
+                                        @if ($socialLink[2]['value'])
+                                            <li>
+                                                <a href="{{ $socialLink[2]['value'] }}" target="_blank">
+                                                    <i class='bx bxl-{{ $socialLink[0]['value'] }}'></i>
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
-                            <div class="language-list">
-                                <select class="language-list-item">
-                                    <option>English</option>
-                                    <option>العربيّة</option>
-                                    <option>Deutsch</option>
-                                    <option>Português</option>
-                                    <option>简体中文</option>
-                                </select>
-                            </div>
+                            @endif
+                            @if (is_plugin_active('language'))
+                                {!! Theme::partial('language-switcher') !!}
+                            @endif
                         </div>
                     </div>
                 </div>
