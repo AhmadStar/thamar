@@ -7,10 +7,19 @@ use Botble\Base\Facades\DashboardMenu;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Botble\Base\Supports\ServiceProvider;
 use Illuminate\Routing\Events\RouteMatched;
+use Botble\Services\Repositories\Interfaces\ServicesInterface;
+use Botble\Services\Repositories\Eloquent\ServicesRepository;
 
 class ServicesServiceProvider extends ServiceProvider
 {
     use LoadAndPublishDataTrait;
+
+    public function register(): void
+    {
+        $this->app->bind(ServicesInterface::class, function () {
+            return new ServicesRepository(new Services());
+        });
+    }
 
     public function boot(): void
     {

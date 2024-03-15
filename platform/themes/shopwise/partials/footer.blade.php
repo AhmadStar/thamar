@@ -31,7 +31,6 @@
                         <?php
                         $services = \Botble\Services\Models\Services::query()
                                 ->wherePublished()
-                               // ->where('service_type','=',1)
                                 ->limit(8)
                                 ->get();
                         ?>
@@ -39,7 +38,7 @@
                         <ul class="footer-list">
                             @foreach($services as $service)
                             <li>
-                                <a href="/service/{{ $service->slug }}" target="_blank">
+                                <a href="/{{$lang}}/service/{{ $service->slug }}" target="_blank">
                                     <i class='bx bx-chevron-{{$arrow}}'></i>
                                     {{$service->name}}
                                 </a>

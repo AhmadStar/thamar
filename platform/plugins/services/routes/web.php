@@ -12,4 +12,19 @@ Route::group(['namespace' => 'Botble\Services\Http\Controllers', 'middleware' =>
         });
     });
 
+
+    Route::group(['prefix' => '{language}'], function () {
+        Route::get('services', [
+            'as'   => 'services',
+            'uses' => 'PublicController@getServices',
+        ]);
+    })->where('language', 'en|ar');
+
+    Route::group(['prefix' => '{language}'], function () {
+        Route::get('service/{slug}', [
+            'as'   => 'service',
+            'uses' => 'PublicController@getService',
+        ]);
+    })->where('language', 'en|ar');
+
 });

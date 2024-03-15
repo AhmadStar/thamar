@@ -12,4 +12,18 @@ Route::group(['namespace' => 'Botble\Projects\Http\Controllers', 'middleware' =>
         });
     });
 
+    Route::group(['prefix' => '{language}'], function () {
+        Route::get('projects', [
+            'as'   => 'projects',
+            'uses' => 'PublicController@getProjects',
+        ]);
+    })->where('language', 'en|ar');
+
+    Route::group(['prefix' => '{language}'], function () {
+        Route::get('project/{slug}', [
+            'as'   => 'project',
+            'uses' => 'PublicController@getProject',
+        ]);
+    })->where('language', 'en|ar');
+
 });
