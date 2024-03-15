@@ -1,0 +1,12 @@
+
+.head-ahref{
+    color: #fff;
+}
+
+a{
+    color: var(--color-2nd);
+}
+
+.blog-card .content h3 {
+    min-height: 48px;
+}

@@ -1,3 +1,8 @@
+@php
+ $lang = app()->getLocale();
+ $arrow = 'ar' ? 'left' : 'right';
+@endphp
+
 <!-- Footer Area End -->
 <footer class="footer-area footer-bg">
     <div class="container">
@@ -15,7 +20,7 @@
                         </p>
                         <div class="footer-call-content">
                             <h3>{{__('Get A Quote')}}</h3>
-                            <span><a href="tel:{{theme_option('hotline')}}">{{theme_option('hotline')}}</a></span>
+                            <span><a href="tel:{{theme_option('hotline')}}" dir="ltr">{{theme_option('hotline')}}</a></span>
                             <i class='fa fa-phone'></i>
                         </div>
                     </div>
@@ -34,8 +39,8 @@
                         <ul class="footer-list">
                             @foreach($services as $service)
                             <li>
-                                <a href="/" target="_blank">
-                                    <i class='bx bx-chevron-right'></i>
+                                <a href="/service/{{ $service->slug }}" target="_blank">
+                                    <i class='bx bx-chevron-{{$arrow}}'></i>
                                     {{$service->name}}
                                 </a>
                             </li>
@@ -55,7 +60,7 @@
                              @foreach($posts as $post)
                             <li>
                                 <a href="{{$post->url}}">
-                                    <img src="{{ RvMedia::getImageUrl($post->image,'small') }}" alt="Images">
+                                    <img src="{{ RvMedia::getImageUrl($post->image,'thumb') }}" alt="{{ $post->name }}">
                                 </a>
                                 <div class="content">
                                     <h3><a href="{{$post->url}}">{{$post->name}}</a></h3>
@@ -73,12 +78,15 @@
                         <h3>{{__('Newsletter')}}</h3>
                         <p>{{__('Subscribe to our Newsletter')}}</p>
                         <div class="newsletter-area">
-                            <form class="newsletter-form" data-toggle="validator" method="POST">
-                                <input type="email" class="form-control" placeholder="{{__('Enter Your Email')}}" name="EMAIL" required autocomplete="off">
-                                <button class="subscribe-btn" type="submit">
+                            <form id="subscribeForm" method="post" class="subscibe-form newsletter-form" action="{{ route('public.newsletter.subscribe') }}">
+                                @csrf
+                                <input type="email" name="email" class="form-control" placeholder="{{__('Enter Your Email')}}" required autocomplete="off">
+                                <button class="subscribe-btn" type="submit" id="buttonText">
                                     <i class='bx bx-paper-plane'></i>
                                 </button>
+                                <button class="btn btn-yellow " id="loader" style="display: none"><i class="fas fa-spinner fa-spin"></i></button>
                                 <div id="validator-newsletter" class="form-result"></div>
+                                <div id="message" style="display: none;"></div>
                             </form>
                         </div>
                     </div>

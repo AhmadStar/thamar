@@ -1,0 +1,9 @@
+{
+    "name": "botble/Partners",
+    "namespace": "Botble\\Partners\\",
+    "provider": "Botble\\Partners\\Providers\\PartnersServiceProvider",
+    "author": "Ahmad Alnajm",
+    "url": "https://devcreative.com",
+    "version": "2.0.0",
+    "description": "The description for module partners"
+}

@@ -17,7 +17,7 @@
                         <span>{{ $testimonial->company }}</span>
                     </div>
                     <p>
-                        {{ BaseHelper::clean($testimonial->content) }}
+                        {!! BaseHelper::clean($testimonial->content) !!}
                     </p>
                 </div>
 

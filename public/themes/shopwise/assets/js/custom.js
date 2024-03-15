@@ -2,13 +2,13 @@
     'use strict';
 
     // Mean Menu JS
-    jQuery('.mean-menu').meanmenu({ 
+    jQuery('.mean-menu').meanmenu({
         meanScreenWidth: "991"
     });
 
     // Navbar Area
     $(window).on('scroll', function() {
-        if ($(this).scrollTop() >150){  
+        if ($(this).scrollTop() >150){
             $('.navbar-area').addClass("sticky-nav");
         }
         else{
@@ -29,7 +29,7 @@
 		$(".side-nav-responsive .container-max .container").toggleClass("active");
     });
 
-    // Banner Slider 
+    // Banner Slider
     $('.banner-slider').owlCarousel({
         loop: true,
         margin: 30,
@@ -106,7 +106,7 @@
     $('.clients-slider').owlCarousel({
         loop: true,
         margin: 30,
-        nav: true,
+        nav: false,
         dots: false,
         autoplay: true,
         autoplayHoverPause: true,
@@ -179,7 +179,7 @@
 		// Hide The Other Panels
 		$('.accordion-content').not($(this).next()).slideUp('fast');
 		// Removes Active Class From Other Titles
-		$('.accordion-title').not($(this)).removeClass('active');		
+		$('.accordion-title').not($(this)).removeClass('active');
     });
 
     // Skill-bar JS
@@ -221,12 +221,12 @@
 
     // Count Time JS
 	function makeTimer() {
-		var endTime = new Date("December 30, 2024 17:00:00 PDT");			
+		var endTime = new Date("December 30, 2024 17:00:00 PDT");
 		var endTime = (Date.parse(endTime)) / 1000;
 		var now = new Date();
 		var now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
-		var days = Math.floor(timeLeft / 86400); 
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -280,11 +280,85 @@
         }
         $("#validator-newsletter").removeClass().addClass(msgClasses).text(msg);
     }
-        
+
     // AJAX MailChimp
-    $(".newsletter-form").ajaxChimp({
-        url: "https://envyTheme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
-        callback: callbackFunction
+    // $(".newsletter-form").ajaxChimp({
+    //     url: "https://envyTheme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
+    //     callback: callbackFunction
+    // });
+
+    $(document).on('click', '.subscibe-form button', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        $('.contact-success-message').html('').hide();
+        $('.contact-error-message').html('').hide();
+
+        // Show loader and hide button text
+        document.getElementById('buttonText').style.display = 'none';
+        document.getElementById('loader').style.display = 'inline-block';
+
+
+        $.ajax({
+            type: 'POST',
+            cache: false,
+            url: $(this).closest('form').prop('action'),
+            data: new FormData($(this).closest('form')[0]),
+            contentType: false,
+            processData: false,
+            success: res => {
+                if (!res.error) {
+                    $(this).closest('form').find('input[type=email]').val('');
+
+                    // Reset form and hide loader
+                    document.getElementById('subscribeForm').reset();
+                    document.getElementById('buttonText').style.display = 'inline-block';
+                    document.getElementById('loader').style.display = 'none';
+
+                    document.getElementById('message').innerText = res.message;
+                    document.getElementById('message').style.display = 'block';
+                    document.getElementById('message').style.color = 'green';
+
+
+                } else {
+                    // showError(res.message);
+                    console.log(res.message);
+                }
+
+                // Reset form and hide loader after a delay
+                setTimeout(function() {
+                    document.getElementById('subscribeForm').reset();
+                    document.getElementById('buttonText').style.display = 'inline-block';
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('message').style.display = 'none'; // Hide message after timeout
+                }, 3000);
+
+            },
+            error: res => {
+                if (typeof refreshRecaptcha !== 'undefined') {
+                    refreshRecaptcha();
+                }
+                // Loader
+                document.getElementById('subscribeForm').reset();
+                document.getElementById('buttonText').style.display = 'inline-block';
+                document.getElementById('loader').style.display = 'none';
+
+                // Mesage
+                var errorMessage = res.responseJSON.message;
+
+                document.getElementById('message').innerText = errorMessage;
+                document.getElementById('message').style.display = 'block';
+                document.getElementById('message').style.color = 'red';
+
+                // Reset form and hide loader after a delay
+                setTimeout(function() {
+                    document.getElementById('subscribeForm').reset();
+                    document.getElementById('buttonText').style.display = 'inline-block';
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('message').style.display = 'none'; // Hide message after timeout
+                }, 3000);
+            }
+        });
     });
 
 })(jQuery);

@@ -1,26 +1,13 @@
 
 <!-- Brand Area -->
-<div class="brand-area-two ptb-100">
+<div class="brand-area-two ptb-100" dir="ltr">
     <div class="container">
         <div class="brand-slider owl-carousel owl-theme">
+            @foreach ($partners as $partner)
             <div class="brand-item">
-                <img src="themes/shopwise/assets/images/brand-logo/brand-style1.png" alt="Images">
+                    <img src="{{ RvMedia::getImageUrl($partner->logo) }}" alt="{{$partner->name}}">
             </div>
-            <div class="brand-item">
-                <img src="themes/shopwise/assets/images/brand-logo/brand-style2.png" alt="Images">
-            </div>
-            <div class="brand-item">
-                <img src="themes/shopwise/assets/images/brand-logo/brand-style3.png" alt="Images">
-            </div>
-            <div class="brand-item">
-                <img src="themes/shopwise/assets/images/brand-logo/brand-style4.png" alt="Images">
-            </div>
-            <div class="brand-item">
-                <img src="themes/shopwise/assets/images/brand-logo/brand-style5.png" alt="Images">
-            </div>
-            <div class="brand-item">
-                <img src="themes/shopwise/assets/images/brand-logo/brand-style3.png" alt="Images">
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
