@@ -26,7 +26,7 @@
         <div class="row pt-45 youtube-vid">
             <div class="col-lg-12">
                 <div class="play-btn-area">
-                    <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="build-play popup-btn"><i class='bx bx-play'></i></a>
+                    <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="build-play popup-btn" aria-label="Show Youtube Video"><i class='bx bx-play'></i></a>
                 </div>
             </div>
         </div>

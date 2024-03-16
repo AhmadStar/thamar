@@ -40,7 +40,7 @@ return [
         'beforeRenderTheme' => function (Theme $theme) {
             $version = get_cms_version();
 
-            $theme->asset()->usePath()->add('bootstrapcss', 'assets/css/bootstrap.min.css');
+            // $theme->asset()->usePath()->add('bootstrapcss', 'assets/css/bootstrap.min.css');
             $theme->asset()->usePath()->add('animatecss', 'assets/css/animate.min.css');
             $theme->asset()->usePath()->add('flaticoncss', 'assets/fonts/flaticon.css');
             $theme->asset()->usePath()->add('boxiconscss', 'assets/css/boxicons.min.css');
@@ -50,20 +50,19 @@ return [
             $theme->asset()->usePath()->add('nicecss', 'assets/css/nice-select.min.css');
             $theme->asset()->usePath()->add('meanmenucss', 'assets/css/meanmenu.css');
             $theme->asset()->usePath()->add('style', 'assets/css/style.css');
-            $theme->asset()->usePath()->add('custome-style', 'assets/css/custome-style.css');
-            $theme->asset()->usePath()->add('responsive', 'assets/css/responsive.css');
             $theme->asset()->usePath()->add('themedark', 'assets/css/theme-dark.css');
 
+            $theme->asset()->usePath()->add('responsive', 'assets/css/responsive.css');
 
             if (BaseHelper::isRtlEnabled()) {
-                $theme->asset()->usePath()->add('rtl-style', 'css/rtl-style.css', [], [], $version);
+                $theme->asset()->usePath()->add('rtl-style', 'css/rtl-style.css', [], ['async'], $version);
 
-                $theme->asset()->usePath()->add('thamar-style-rtl', 'css/thamar-style-rtl.css', [], [], $version);
+                $theme->asset()->usePath()->add('thamar-style-rtl', 'css/thamar-style-rtl.css', [], ['async'], $version);
 
-                $theme->asset()->usePath()->add('thamar-rtl', 'css/thamar-rtl.css', [], [], $version);
-
-
+                $theme->asset()->usePath()->add('thamar-rtl', 'css/thamar-rtl.css', [], ['async'], $version);
             }
+
+            $theme->asset()->usePath()->add('custome-style', 'assets/css/custome-style.css');
 
             $theme->asset()->container('header')->usePath()->add('jquery', 'assets/js/jquery.min.js');
             $theme->asset()->container('footer')->usePath()->add('bootstrapjs', 'assets/js/bootstrap.bundle.min.js', ['jquery']);

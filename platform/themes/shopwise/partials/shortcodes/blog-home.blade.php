@@ -15,8 +15,8 @@
                             <img src="{{ RvMedia::getImageUrl($post->image, 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}" loading="lazy">
                         </a>
                         <div class="blog-tag">
-                            <h3>{{ $post->created_at->format('d') }}</h3>
-                            <span>{{ $post->created_at->format('M') }}</span>
+                            <p class="day-number">{{ $post->created_at->format('d') }}</p>
+                            <span class="day-month">{{ $post->created_at->format('M') }}</span>
                         </div>
                     </div>
                     <div class="content">

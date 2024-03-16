@@ -42,3 +42,49 @@ a{
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+
+.banner-sub-item .content .h3-number {
+    font-size: 45px;
+    color: #ffc221;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.blog-card .blog-img .blog-tag .day-number{
+    font-size: 17px;
+    color: #002421;
+    line-height: 1;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.blog-card .blog-img .blog-tag .day-month{
+    color: #ffffff;
+    line-height: 1;
+    font-weight: 500;
+    color: #002421;
+}
+
+
+
+
+@media only screen and (max-width: 767px){
+    .banner-content h1 {
+        font-size: 35px;
+        max-width: 100%;
+    }
+
+    .about-content-2 .about-card .content i {
+        font-size: 40px;
+        position: inherit;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .services-item {
+        text-align: center;
+    }
+
+}

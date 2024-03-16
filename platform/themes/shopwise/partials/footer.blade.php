@@ -82,7 +82,7 @@
                             <form id="subscribeForm" method="post" class="subscibe-form newsletter-form" action="{{ route('public.newsletter.subscribe') }}">
                                 @csrf
                                 <input type="email" name="email" class="form-control" placeholder="{{__('Enter Your Email')}}" required autocomplete="off">
-                                <button class="subscribe-btn" type="submit" id="buttonText">
+                                <button class="subscribe-btn" type="submit" id="buttonText" aria-label="Subscribe to newsletter">
                                     <i class='bx bx-paper-plane'></i>
                                 </button>
                                 <button class="btn btn-yellow " id="loader" style="display: none"><i class="fas fa-spinner fa-spin"></i></button>
@@ -109,7 +109,7 @@
 <!-- Color Switch Button -->
 <div class="switch-box">
     <label id="switch" class="switch">
-        <input type="checkbox" onchange="toggleTheme()" id="slider">
+        <input type="checkbox" onchange="toggleTheme()" id="slider" aria-label="Change Theme Color">
         <span class="slider round"></span>
     </label>
 </div>

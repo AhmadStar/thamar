@@ -24,7 +24,7 @@
                         <ul>
                             <li><a href="/{{$lang}}/project/{{$project->slug}}">{{$project->company}}</a></li>
                         </ul>
-                        <a href="/{{$lang}}/project/{{$project->slug}}" class="more-btn"><i class='bx bx-right-arrow-alt'></i></a>
+                        <a href="/{{$lang}}/project/{{$project->slug}}" class="more-btn" aria-label="Show Thamar projects"><i class='bx bx-right-arrow-alt'></i></a>
                     </div>
                 </div>
             @endforeach

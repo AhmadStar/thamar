@@ -37,7 +37,7 @@
             <div class="banner-sub-item">
                 <img src="{{ RvMedia::getImageUrl($shortcode->achievement1img) }}" alt="{{ $shortcode->achievement1 }}" loading="lazy">
                 <div class="content">
-                    <h3>{{ $shortcode->achievement1 }}</h3>
+                    <p class="h3-number">{{ $shortcode->achievement1 }}</p>
                     <span>{{ $shortcode->achievement1text }}</span>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="banner-sub-item">
                 <img src="{{ RvMedia::getImageUrl($shortcode->achievement2img) }}" alt="{{ $shortcode->achievement2 }}" loading="lazy">
                 <div class="content">
-                    <h3>{{ $shortcode->achievement2 }}</h3>
+                    <p class="h3-number">{{ $shortcode->achievement2 }}</p>
                     <span>{{ $shortcode->achievement2text }}</span>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="banner-sub-item">
                 <img src="{{ RvMedia::getImageUrl($shortcode->achievement3img) }}" alt="{{ $shortcode->achievement3 }}" loading="lazy">
                 <div class="content">
-                    <h3>{{ $shortcode->achievement3 }}</h3>
+                    <p class="h3-number">{{ $shortcode->achievement3 }}</p>
                     <span>{{ $shortcode->achievement3text }}</span>
                 </div>
             </div>
