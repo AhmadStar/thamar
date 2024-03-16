@@ -12,7 +12,7 @@
                     <div class="footer-widget">
                         <div class="footer-logo">
                             <a href="/">
-                                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="Images">
+                                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{theme_option('site_title')}}" loading="lazy">
                             </a>
                         </div>
                         <p>
@@ -51,21 +51,23 @@
 
                 <div class="col-lg-3 col-sm-6">
                     <div class="footer-widget pl-5">
-                        <?php
-                        $posts = app(\Botble\Blog\Repositories\Interfaces\PostInterface::class)->getFeatured(3);
-                                ?>
+
+                        @php
+                            $posts = app(\Botble\Blog\Repositories\Interfaces\PostInterface::class)->getFeatured(3);
+                        @endphp
+
                         <h3>{{__('Our Blog')}}</h3>
                          <ul class="footer-blog">
                              @foreach($posts as $post)
-                            <li>
-                                <a href="{{$post->url}}">
-                                    <img src="{{ RvMedia::getImageUrl($post->image,'thumb') }}" alt="{{ $post->name }}">
-                                </a>
-                                <div class="content">
-                                    <h3><a href="{{$post->url}}">{{$post->name}}</a></h3>
-                                    <span>{{ $post->created_at->translatedFormat('M d, Y')}}</span>
-                                </div>
-                            </li>
+                                <li>
+                                    <a href="{{$post->url}}">
+                                        <img src="{{ RvMedia::getImageUrl($post->image,'thumb') }}" alt="{{ $post->name }}" loading="lazy">
+                                    </a>
+                                    <div class="content">
+                                        <h3><a href="{{$post->url}}">{{$post->name}}</a></h3>
+                                        <span>{{ $post->created_at->translatedFormat('M d, Y')}}</span>
+                                    </div>
+                                </li>
                              @endforeach
 
                         </ul>
@@ -80,7 +82,7 @@
                             <form id="subscribeForm" method="post" class="subscibe-form newsletter-form" action="{{ route('public.newsletter.subscribe') }}">
                                 @csrf
                                 <input type="email" name="email" class="form-control" placeholder="{{__('Enter Your Email')}}" required autocomplete="off">
-                                <button class="subscribe-btn" type="submit" id="buttonText">
+                                <button class="subscribe-btn" type="submit" id="buttonText" aria-label="Subscribe to newsletter">
                                     <i class='bx bx-paper-plane'></i>
                                 </button>
                                 <button class="btn btn-yellow " id="loader" style="display: none"><i class="fas fa-spinner fa-spin"></i></button>
@@ -96,7 +98,6 @@
         <div class="copy-right-area">
             <div class="copy-right-text">
                 <p>
-
                      {{theme_option('copyright')}}
                 </p>
             </div>
@@ -108,24 +109,15 @@
 <!-- Color Switch Button -->
 <div class="switch-box">
     <label id="switch" class="switch">
-        <input type="checkbox" onchange="toggleTheme()" id="slider">
+        <input type="checkbox" onchange="toggleTheme()" id="slider" aria-label="Change Theme Color">
         <span class="slider round"></span>
     </label>
 </div>
 <!-- Color Switch Button End -->
 
-
-    <script>
-        window.trans = {
-            "No reviews!": "{{ __('No reviews!') }}",
-            "Days": "{{ __('Days') }}",
-            "Hours": "{{ __('Hours') }}",
-            "Minutes": "{{ __('Minutes') }}",
-            "Seconds": "{{ __('Seconds') }}",
-        };
-
-        window.siteUrl = "{{ route('public.index') }}";
-    </script>
+<script>
+    window.siteUrl = "{{ route('public.index') }}";
+</script>
 
     {!! Theme::footer() !!}
 

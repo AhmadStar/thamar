@@ -14,6 +14,11 @@
         1F90A6
          --}}
 
+        @php
+            Theme::asset()->remove('language-css');
+            Theme::asset()->remove('ckeditor-content-styles');
+        @endphp
+
         <style>
             :root {
                 --color-1st: {{ theme_option('primary_color', '#FF324D') }};
@@ -26,22 +31,15 @@
             }
         </style>
 
+<link rel="preload" href="{{ asset('/themes/shopwise/assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ asset('/themes/shopwise/assets/css/bootstrap.min.css') }}"></noscript>
+
         {!! Theme::header() !!}
     </head>
     <body {!! Theme::bodyAttributes() !!}>
     {!! apply_filters(THEME_FRONT_BODY, null) !!}
 
     <div id="alert-container"></div>
-
-    <!-- Pre Loader -->
-    <div class="preloader">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="spinner"></div>
-            </div>
-        </div>
-    </div>
-    <!-- End Pre Loader -->
 
     <!-- Top Header Start -->
     <header class="top-header top-header-bg">
@@ -68,7 +66,7 @@
                                     @foreach($socialLinks as $socialLink)
                                         @if ($socialLink[2]['value'])
                                             <li>
-                                                <a href="{{ $socialLink[2]['value'] }}" target="_blank">
+                                                <a href="{{ $socialLink[2]['value'] }}" target="_blank" aria-label="Open {{ $socialLink[0]['value'] }} Account">
                                                     <i class='bx bxl-{{ $socialLink[0]['value'] }}'></i>
                                                 </a>
                                             </li>
@@ -118,7 +116,7 @@
                                     <div class="search-side-widget">
                                         <form class="search-side-form">
                                             <input type="search" class="form-control" placeholder="{{__('Search')}}...">
-                                            <button type="submit">
+                                            <button type="submit" aria-label="Search Thamar Blog">
                                                 <i class="bx bx-search"></i>
                                             </button>
                                         </form>

@@ -4,7 +4,7 @@
 @endphp
 
 <!-- Build Area -->
-<div class="build-area pt-100 pb-70">
+<div id="build-area" class="build-area pt-100 pb-70">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 col-md-8">
@@ -26,7 +26,7 @@
         <div class="row pt-45 youtube-vid">
             <div class="col-lg-12">
                 <div class="play-btn-area">
-                    <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="build-play popup-btn"><i class='bx bx-play'></i></a>
+                    <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="build-play popup-btn" aria-label="Show Youtube Video"><i class='bx bx-play'></i></a>
                 </div>
             </div>
         </div>
