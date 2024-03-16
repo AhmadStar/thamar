@@ -1,4 +1,6 @@
 (function($) {
+
+
     'use strict';
 
     // Mean Menu JS
