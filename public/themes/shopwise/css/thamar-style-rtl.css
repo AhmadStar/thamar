@@ -2734,7 +2734,9 @@ Build Area
 .build-area-two {
   background-color: #f8f8f8;
 }
-
+.brand-area-two  .section-title h2{
+  color: #FFFFFF;
+}
 /*==================================
 Build Area End
 =================================*/

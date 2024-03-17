@@ -51,7 +51,7 @@ class RegisterForm extends AuthForm
                 EmailField::class,
                 EmailFieldOption::make()
                     ->when(EcommerceHelper::isLoginUsingPhone(), function (EmailFieldOption $fieldOption) {
-                        $fieldOption->label(__('Email (optional)'));
+                        $fieldOption->label(__('Email'));
                     }, function (EmailFieldOption $fieldOption) {
                         $fieldOption->label(__('Email'));
                     })
@@ -114,7 +114,7 @@ class RegisterForm extends AuthForm
                     })
                     ->toArray()
             )
-            ->submitButton(__('Register'), 'ti ti-arrow-narrow-right')
+            ->submitButton(__('Register'), '')
             ->add(
                 'login',
                 HtmlField::class,
