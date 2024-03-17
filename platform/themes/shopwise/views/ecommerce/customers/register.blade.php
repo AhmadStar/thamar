@@ -63,9 +63,9 @@ $lang = app()->getLocale();
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-8 col-lg-8  mx-auto mb-5 mb-lg-0 contact-form">
+                <div class="col-md-8 col-lg-8  mx-auto mb-5 mb-lg-0 ">
                     <h2 class="font-weight-bold text-5 mb-0 ">{{ __('Register an account') }}</h2>
-                    <form class="ps-form--account ps-tab-root" method="POST" action="{{ route('customer.register.post') }}">
+                    <form class="ps-form--account ps-tab-root contact-form" method="POST" action="{{ route('customer.register.post') }}">
                         @csrf
                         <br>
                         <div class="ps-form__content">
@@ -86,14 +86,23 @@ $lang = app()->getLocale();
                                     @endif
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="form-group">
+                                {{--<label for="shop-phone" class="required">{{ __('Phone Number') }}</label>--}}
+                                <input class="form-control" name="phone" id="shop-phone" type="text" value="{{ old('phone') }}" placeholder="{{ __('Phone Number') }}">
+                                @if ($errors->has('phone'))
+                                    <span class="text-danger small">{{ $errors->first('phone') }}</span>
+                                @endif
+                            </div></div>
+                        <div class="row">
                                 <div class="form-group">
                                     <input class="form-control" type="password" name="password" id="txt-password" autocomplete="new-password" placeholder="{{ __('Password') }}">
                                     @if ($errors->has('password'))
                                         <span class="text-danger small">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
-                            </div>
+
+                        </div>
+
                             <div class="row">
                                 <div class="form-group">
                                     <input class="form-control" type="password" name="password_confirmation" id="txt-password-confirmation" autocomplete="new-password" placeholder="{{ __('Password') }}">
@@ -120,14 +129,14 @@ $lang = app()->getLocale();
                                         @else
                                             <span class="d-inline-block"><small data-base-url="{{ route('public.store', '') }}">{{ route('public.store', (string)old('shop_url')) }}</small></span>
                                         @endif
-                                    </div>
-                                    <div class="form-group">
+                                    </div><div class="form-group">
                                         <label for="shop-phone" class="required">{{ __('Phone Number') }}</label>
                                         <input class="form-control" name="shop_phone" id="shop-phone" type="text" value="{{ old('shop_phone') }}" placeholder="{{ __('Shop phone') }}">
                                         @if ($errors->has('shop_phone'))
                                             <span class="text-danger small">{{ $errors->first('shop_phone') }}</span>
                                         @endif
                                     </div>
+
                                 </div>
                                 <div class="form-group user-role">
                                     <p>
@@ -172,10 +181,11 @@ $lang = app()->getLocale();
                                     {!! Captcha::display() !!}
                                 </div>
                             @endif
-
+                            <div class="contact-message contact-success-message contact-message contact-success-message " style="display: none"></div>
+                            <div class="contact-message contact-error-message" style="display: none"></div>
                             <div class="row">
                                 <div class="form-group col">
-                                    <button class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3" type="submit">{{ __('Sign up') }}</button>
+                                    <button  type="submit" class="default-btn btn-bg-two border-radius-50">{{ __('Sign up') }}</button>
                                 </div>
                             </div>
 

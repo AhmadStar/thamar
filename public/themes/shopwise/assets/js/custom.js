@@ -241,7 +241,52 @@
 		$("#seconds").html(seconds + "<span>Seconds</span>");
 	}
     setInterval(function() { makeTimer(); }, 300);
+    $(document).on('submit', '.contact-form', function (event) {
+        event.preventDefault()
+        event.stopPropagation()
 
+        const $form = $(this)
+        const $button = $form.find('button[type=submit]')
+
+        $('.contact-success-message').html('').hide()
+        $('.contact-error-message').html('').hide()
+
+        $.ajax({
+                type: 'POST',
+                cache: false,
+                url: $form.prop('action'),
+                data: new FormData($form[0]),
+                contentType: false,
+                processData: false,
+                beforeSend: () => $button.addClass('button-loading'),
+            success: ({ error, message }) => {
+            if (!error) {
+                $form[0].reset()
+                showSuccess(message)
+            } else {
+                showError(message)
+            }
+
+            if (typeof refreshRecaptcha !== 'undefined') {
+                refreshRecaptcha()
+            }
+        },
+        error: (error) => {
+            if (typeof refreshRecaptcha !== 'undefined') {
+                refreshRecaptcha()
+            }
+            handleError(error)
+        },
+        complete: () => $button.removeClass('button-loading'),
+    })
+        let showError = function (message) {
+            $('.contact-error-message').html(message).show()
+        }
+
+        let showSuccess = function (message) {
+            $('.contact-success-message').html(message).show()
+        }
+    });
     $(document).on('click', '.subscibe-form button', function (event) {
         event.preventDefault();
         event.stopPropagation();

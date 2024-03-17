@@ -9,8 +9,14 @@
     <div class="bb-customer-profile-wrapper">
         <div class="bb-customer-profile">
             <div class="bb-customer-profile-avatar">
+                {{--{{$customer->avatar_url}}--}}
+                @if(strpos($customer->avatar_url, 'data:') !== false)
+                    <img  class = 'bb-customer-profile-avatar-img' src="https://staging.thamar-consulting.com/storage/general/1-arzr7f-fff-ki14ymkbzw.png">
+
+                @else
                 {{ RvMedia::image($customer->avatar_url, $customer->name, attributes: ['class' => 'bb-customer-profile-avatar-img', 'data-bb-value' => 'customer-avatar']) }}
-                <div class="bb-customer-profile-avatar-overlay">
+                @endif
+                    <div class="bb-customer-profile-avatar-overlay">
                     <input type="file" id="customer-avatar" name="avatar" data-bb-toggle="change-customer-avatar" data-url="{{ route('customer.avatar') }}" />
                     <label for="customer-avatar"><x-core::icon name="ti ti-camera" :wrapper="false" /></label>
                 </div>
@@ -35,7 +41,7 @@
             </div>
         </div>
 
-        @if (! $customer->orders()->exists())
+        @if (! $customer->orders()->exists()&& 1==0)
             <div
                 role="alert"
                 class="alert alert-info d-flex align-items-center justify-content-between mt-3 mb-0"
