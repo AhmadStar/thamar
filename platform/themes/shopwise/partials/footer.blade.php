@@ -105,7 +105,9 @@
     </div>
 </footer>
 <!-- Footer Area End -->
-
+<a href="https://api.whatsapp.com/send?phone={{theme_option('hotline')}}&amp;text=Hi" class="float" target="_blank">
+    <i class="bx bxl-whatsapp my-float"></i>
+</a>
 <!-- Color Switch Button -->
 <div class="switch-box">
     <label id="switch" class="switch">

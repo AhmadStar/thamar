@@ -15,7 +15,7 @@
                         <span class="sp-color1">About Us</span>
                         <h2>{{$shortcode->title}}</h2>
                         <p>
-                            {{$shortcode->content_1}}</p>
+                            {!! $shortcode->content_1  !!}</p>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-6">

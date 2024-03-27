@@ -150,6 +150,19 @@ app()->booted(function () {
     });
 
 
+
+
+    add_shortcode('about-who-we-are', __('about-who-we-are'), __('about-who-we-are'), function (Shortcode $shortcode) {
+
+        return Theme::partial('shortcodes.about-who-we-are', compact('shortcode'));
+    });
+
+    shortcode()->setAdminConfig('about-who-we-are', function (array $attributes) {
+        return Theme::partial('shortcodes.about-who-we-are-admin-config', compact('attributes'));
+    });
+
+
+
     add_shortcode('about-us', __('about-us'), __('about-us'), function (Shortcode $shortcode) {
 
         return Theme::partial('shortcodes.about-us', compact('shortcode'));

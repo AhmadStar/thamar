@@ -7,6 +7,15 @@
     <textarea name="content_1" class="form-control" placeholder="{{ __('content_1') }}" rows="3">{{ Arr::get($attributes, 'content_1') }}</textarea>
 </div>
 <div class="mb-3">
+    <label class="form-label">{{ __('content') }}</label>
+    <textarea name="content_2" class="form-control" placeholder="{{ __('content_2') }}" rows="3">{{ Arr::get($attributes, 'content_2') }}</textarea>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">{{ __('content') }}</label>
+    <textarea name="content_3" class="form-control" placeholder="{{ __('content_3') }}" rows="3">{{ Arr::get($attributes, 'content_3') }}</textarea>
+</div>
+<div class="mb-3">
     <label class="form-label">{{ __('Service Title 1') }}</label>
     <input type="text" name="s_title" value="{{ Arr::get($attributes, 's_title') }}" class="form-control" placeholder="{{ __('Title 1') }}">
 </div>

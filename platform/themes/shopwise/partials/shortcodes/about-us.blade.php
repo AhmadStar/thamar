@@ -12,13 +12,17 @@
             <div class="col-lg-6">
                 <div class="about-content-2 ml-20">
                     <div class="section-title">
-                        <span class="sp-color1">About Us</span>
+                        {{--<span class="sp-color1">About Us</span>--}}
                         <h2>{{$shortcode->title}}</h2>
                         <p>
                             {{$shortcode->content_1}}</p>
+                        <p>
+                            {{$shortcode->content_2}}</p>
+                        <p>
+                            {{$shortcode->content_3}}</p>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-6">
+                        <div class="col-lg-12 col-12">
                             <div class="about-card">
                                 <div class="content">
                                     <i class="flaticon-practice"></i>
@@ -28,7 +32,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-6">
+                        <div class="col-lg-12 col-12">
                             <div class="about-card">
                                 <div class="content">
                                     <i class="flaticon-help"></i>
