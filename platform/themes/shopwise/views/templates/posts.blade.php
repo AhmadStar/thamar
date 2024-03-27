@@ -22,7 +22,7 @@
                         <li><i class="ti-eye"></i> {{ number_format($post->views) }} {{ __('Views') }}</li>
                     </ul>
                     <h3>
-                        <a href="blog-details.html">{{ $post->name }}</a>
+                        <a href="{{ $post->url }}">{{ $post->name }}</a>
                     </h3>
                     <p>{{ Str::limit($post->description, 130) }}</p>
                     <a href="{{ $post->url }}" class="btn btn-fill-line border-2 btn-xs rounded-0">{{ __('Read More') }}</a>
