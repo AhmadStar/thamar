@@ -1,6 +1,7 @@
 @php
     app()->getLocale() == 'ar' ? ($dir = 'left') : ($dir = 'right');
     $lang = app()->getLocale();
+    $arrow = 'ar' ? 'left' : 'right';
 @endphp
 
 
@@ -14,7 +15,7 @@
                     <a href="/{{$lang}}">{{ __("Home")}}</a>
                 </li>
                 <li>
-                    <i class='bx bx-chevrons-right'></i>
+                    <i class='bx bx-chevrons-{{$arrow}}'></i>
                 </li>
                 <li>{{ __("Services") }}</li>
             </ul>

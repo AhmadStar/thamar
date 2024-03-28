@@ -1,6 +1,7 @@
 @php
     app()->getLocale() == 'ar' ? ($dir = 'left') : ($dir = 'right');
     $lang = app()->getLocale();
+    $arrow = 'ar' ? 'left' : 'right';
 @endphp
 
 
@@ -8,13 +9,13 @@
 <div class="inner-banner">
     <div class="container">
         <div class="inner-title text-center">
-            <h3>{{ __("Services") }}</h3>
+            <h1>{{ $service->name }}</h1>
             <ul>
                 <li>
                     <a href="/{{$lang}}">{{ __("Home")}}</a>
                 </li>
                 <li>
-                    <i class='bx bx-chevrons-right'></i>
+                    <i class='bx bx-chevrons-{{$arrow}}'></i>
                 </li>
                 <li>{{ $service->name }}</li>
             </ul>

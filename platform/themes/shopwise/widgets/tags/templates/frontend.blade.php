@@ -1,8 +1,8 @@
-<div class="widget">
-    <h5 class="widget_title">{{ $config['name'] }}</h5>
-    <div class="tags">
+<div class="side-bar-widget">
+    <h3 class="title">{{ $config['name'] }}</h3>
+    <ul class="side-bar-widget-tag">
         @foreach (get_popular_tags($config['number_display']) as $tag)
-            <a href="{{ $tag->url }}" class="tag-link">{{ $tag->name }}</a>
+            <li><a href="{{ $tag->url }}">{{ $tag->name }}</a></li>
         @endforeach
-    </div>
+    </ul>
 </div>

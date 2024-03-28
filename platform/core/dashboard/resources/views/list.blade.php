@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12">
+        {{-- <div class="col-12">
             @if (config('core.base.general.enable_system_updater') && Auth::user()->isSuperUser())
                 <v-check-for-updates
                     check-update-url="{{ route('system.check-update') }}"
@@ -35,7 +35,7 @@
                     </x-core::alert>
                 </v-check-for-updates>
             @endif
-        </div>
+        </div> --}}
 
         <div class="col-12">
             {!! apply_filters(DASHBOARD_FILTER_ADMIN_NOTIFICATIONS, null) !!}

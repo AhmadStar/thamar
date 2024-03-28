@@ -1,52 +1,95 @@
 @php Theme::set('pageName', __('Blog')) @endphp
 
-<div class="section">
+@php
+    $lang = app()->getLocale();
+    $arrow = 'ar' ? 'left' : 'right';
+@endphp
+
+<div class="inner-banner">
+    <div class="container">
+        <div class="inner-title text-center">
+            <h1>{{ $post->name }}</h1>
+            <ul>
+                <li><a href="/{{ $lang }}">{{ __("Home") }}</a></li>
+                <li><i class="bx bx-chevrons-{{$arrow}}"></i></li>
+                <li>{{ $post->name }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="inner-shape"><img src="assets/images/shape/inner-shape.png" alt="Images"></div>
+</div>
+
+
+<div class="case-details-area pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-xl-9">
-                <div class="single_post">
-                    <h2 class="blog_title">{{ $post->name }}</h2>
-                    <ul class="list_none blog_meta">
-                        <li><i class="ti-calendar"></i> {{ $post->created_at->translatedFormat('M d, Y') }}</li>
-                        <li><i class="ti-pencil-alt"></i>
-                            @if (!$post->categories->isEmpty())
-                                @foreach($post->categories as $category)
-                                    <a href="{{ $category->url }}">{{ $category->name }}</a>@if (!$loop->last),@endif
-                                @endforeach
-                            @endif
-                        </li>
-                        <li><i class="ti-eye"></i> {{ number_format($post->views) }} {{ __('Views') }}</li>
-                    </ul>
-                    <div class="blog_img">
+            <div class="col-lg-8">
+                <div class="blog-article">
+                    <div class="blog-article-img">
                         <img src="{{ RvMedia::getImageUrl($post->image, null, false, RvMedia::getDefaultImage()) }}" alt="{{ $post->name }}" loading="lazy" />
                     </div>
-                    <div class="blog_content">
-                        <div class="blog_text">
-                             <div class="ck-content">{!! BaseHelper::clean($post->content) !!}</div>
-                            <div class="blog_post_footer">
-                                <div class="row justify-content-between align-items-center">
-                                    <div class="col-md-8 mb-3 mb-md-0">
-                                        <div class="tags">
-                                            @if (!$post->tags->isEmpty())
-                                                @foreach ($post->tags as $tag)
+                    <div class="blog-article-title">
+                        <ul>
+                            <li><i class="bx bx-time-five"></i> {{ $post->created_at->translatedFormat('M d, Y') }}</li>
+                            <li><i class="bx bx-category-alt"></i>
+                                @if (!$post->categories->isEmpty())
+                                    @foreach($post->categories as $category)
+                                        <a href="{{ $category->url }}">{{ $category->name }}</a>@if (!$loop->last),@endif
+                                    @endforeach
+                                @endif
+                            </li>
+                            <li><i class="bx bx-show-alt"></i> {{ number_format($post->views) }} {{ __('Views') }}</li>
+                        </ul>
+                        <h2>{{ $post->name }}</h2>
+                    </div>
+                    <div class="article-content">
+                        <div class="ck-content">{!! BaseHelper::clean($post->content) !!}</div>
+                    </div>
+                    <div class="blog-article-share">
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 col-sm-7 col-md-7">
+                                <div class="blog-tag">
+                                    <ul>
+                                        <li><i class="bx bx-purchase-tag-alt"></i> {{ __("Tags") }}:</li>
+                                        @if (!$post->tags->isEmpty())
+                                            @foreach ($post->tags as $tag)
+                                                <li>
                                                     <a href="{{ $tag->url }}">{{ $tag->name }}</a>
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <ul class="social_icons text-md-right">
-                                            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post->url) }}&title={{ rawurldecode($post->description) }}" target="_blank" title="{{ __('Share on Facebook') }}"><i class="ion-social-facebook"></i></a></li>
-                                            <li><a href="https://twitter.com/intent/tweet?url={{ urlencode($post->url) }}&text={{ rawurldecode($post->description) }}" target="_blank" title="{{ __('Share on Twitter') }}"><i class="ion-social-twitter"></i></a></li>
-                                            <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode($post->url) }}&summary={{ rawurldecode($post->description) }}&source=Linkedin" title="{{ __('Share on Linkedin') }}" target="_blank"><i class="ion-social-linkedin"></i></a></li>
-                                        </ul>
-                                    </div>
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
                                 </div>
                             </div>
-                            <br>
-                            {!! apply_filters(BASE_FILTER_PUBLIC_COMMENT_AREA, null, $post) !!}
+                            <div class="col-lg-5 col-sm-5 col-md-5">
+                                <ul class="social-icon">
+                                    <li>
+                                        <a href="https://www.facebook.com/" target="_blank">
+                                            <i class="bx bxl-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/?lang=en" target="_blank">
+                                            <i class="bx bxl-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/" target="_blank">
+                                            <i class="bx bxl-linkedin-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="bx bxl-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+
+                    <br>
+                    {!! apply_filters(BASE_FILTER_PUBLIC_COMMENT_AREA, null, $post) !!}
                 </div>
                 @php $relatedPosts = get_related_posts($post->id, 2); @endphp
 
@@ -63,16 +106,6 @@
                                         <div class="blog_img">
                                             <a href="{{ $relatedItem->url }}"><img src="{{ RvMedia::getImageUrl($relatedItem->image, 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $relatedItem->name }}" loading="lazy" /></a>
                                         </div>
-                                        <div class="blog_content bg-white">
-                                            <div class="blog_text">
-                                                <h6 class="blog_title"><a href="{{ $relatedItem->url }}">{{ $relatedItem->name }}</a></h6>
-                                                <ul class="list_none blog_meta">
-                                                    <li><i class="ti-calendar"></i> {{ $relatedItem->created_at->translatedFormat('M d, Y') }}</li>
-                                                    <li><i class="ti-eye"></i> {{ number_format($relatedItem->views) }} {{ __('Views') }}</li>
-                                                </ul>
-                                                <p>{{ Str::limit($relatedItem->description, 110) }}</p>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             @endforeach
@@ -80,7 +113,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col-xl-3 mt-4 pt-2 mt-xl-0 pt-xl-0">
+            <div class="col-lg-4">
                 <div class="sidebar">
                     {!! dynamic_sidebar('primary_sidebar') !!}
                 </div>

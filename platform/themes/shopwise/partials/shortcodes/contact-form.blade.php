@@ -1,3 +1,8 @@
+@php
+    $lang = app()->getLocale();
+    $arrow = 'ar' ? 'left' : 'right';
+@endphp
+
 <!-- Inner Banner -->
 <div class="inner-banner">
     <div class="container">
@@ -8,7 +13,7 @@
                     <a href="">{{ __("Home")}}</a>
                 </li>
                 <li>
-                    <i class='bx bx-chevrons-right'></i>
+                    <i class='bx bx-chevrons-{{$arrow}}'></i>
                 </li>
                 <li>{{ __("Contact Us")}}</li>
             </ul>

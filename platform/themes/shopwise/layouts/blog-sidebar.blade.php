@@ -1,7 +1,7 @@
 {!! Theme::partial('header') !!}
 
 
-<div class="inner-banner">
+{{-- <div class="inner-banner">
     <div class="container">
         <div class="inner-title text-center">
             <h3>{{ Theme::get('pageName') }}</h3>
@@ -25,6 +25,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 {!! Theme::partial('footer') !!}

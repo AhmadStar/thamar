@@ -266,7 +266,7 @@
     "Header": "Header",
     "Height": "Height",
     "Hello <strong>:name</strong>,": "Hello <strong>:name</strong>,",
-    "Home": "Home",
+    "Home": "الرئيسية",
     "Homepage": "Homepage",
     "Hotline": "Hotline",
     "Hours": "Hours",
@@ -749,5 +749,17 @@
     "dashboard":"لوحة التحكم",
     "Our Partners":"شركاؤنا",
     "Partners":"ﺷﺮﻛﺎء وﻋﻤﻼء ﺛﻤﺮ",
-    "Our Clients":"عملائنا"
+    "Our Clients":"عملائنا",
+    "Our Clients":"عملائنا",
+    "Our Clients Feedback":"آراء العملاء",
+    "Blog":"المدونة",
+    "Let’s Check Some Latest Blog":"تابع آخر المقالات",
+    "Our Services":"خدماتنا",
+    "We Provide a Wide Variety of It Services":"نقدّم مجموعة متنوعة من خدمات في مختلف المجالات",
+    "Let's Send Us a Message Below":"ارسل رسالة لنا",
+    "Contact Info": "معلومات الاتصال",
+    "Let's Connect With Us": "لنتواصل معنا",
+    "Phone Number": "رقم الهاتف",
+    "Address": "العنوان",
+    "Our Projects":"مشاريعنا"
 }

@@ -277,4 +277,15 @@ app()->booted(function () {
         return Theme::partial('shortcodes.blog-home-admin-config', compact('attributes'));
     });
 
+    add_shortcode('header', __('Header'), __('Header'), function (Shortcode $shortcode) {
+
+        return Theme::partial('shortcodes.header', [
+            'title' => $shortcode->title,
+        ]);
+    });
+
+    shortcode()->setAdminConfig('header', function (array $attributes) {
+        return Theme::partial('shortcodes.header-admin-config', compact('attributes'));
+    });
+
 });
