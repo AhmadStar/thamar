@@ -5,6 +5,7 @@ namespace Botble\Services\Models;
 use Botble\Base\Casts\SafeContent;
 use Botble\Base\Enums\BaseStatusEnum;
 use Botble\Base\Models\BaseModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static \Botble\Base\Models\BaseQueryBuilder<static> query()
@@ -29,4 +30,9 @@ class Services extends BaseModel
         'status' => BaseStatusEnum::class,
         'name' => SafeContent::class,
     ];
+
+    public function serviceType(): BelongsTo
+    {
+        return $this->belongsTo(ServicesTypes::class, 'service_type');
+    }
 }

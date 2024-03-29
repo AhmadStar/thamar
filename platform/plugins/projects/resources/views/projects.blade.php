@@ -28,12 +28,12 @@
 <!-- Inner Banner End -->
 
 
-<!-- Projects widget Area -->
-<section class="projects-widget-area pt-100 pb-70">
+<!-- Services widget Area -->
+<section class="services-widget-area pt-100 pb-70">
     <div class="container">
         <div class="section-title text-center">
             <span class="sp-color2">{{ __("Our Projects") }}</span>
-            <h2>We Provide a Wide Variety of It Projects</h2>
+            <h2>{{ __("We Provide a Wide Variety of Projects") }}</h2>
         </div>
         <div class="row pt-45">
             @foreach ($projects as $project)
@@ -43,9 +43,7 @@
                         <img src="{{ RvMedia::getImageUrl($project->image) }}" alt="{{ $project->name }}">
                     </a>
                     <div class="content">
-                        <i class="flaticon-consultant"></i>
-                        <span><a href="/{{$lang}}/project/{{$project->slug}}">{{$project->name}}</a></span>
-                        <h3><a href="/{{$lang}}/project-type/{{$project->project_type}}">{{$project->project_type}}</a></h3>
+                        <h3><a href="/{{$lang}}/project/{{$project->slug}}">{{$project->name}}</a></h3>
                     </div>
                 </div>
             </div>
@@ -53,4 +51,5 @@
         </div>
     </div>
 </section>
-<!-- Projects widget Area End -->
+<!-- Services widget Area End -->
+

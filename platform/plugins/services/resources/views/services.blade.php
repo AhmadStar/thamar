@@ -33,7 +33,7 @@
     <div class="container">
         <div class="section-title text-center">
             <span class="sp-color2">{{ __("Our Services") }}</span>
-            <h2>We Provide a Wide Variety of It Services</h2>
+            <h2>{{ __("We Provide a Wide Variety of It Services") }}</h2>
         </div>
         <div class="row pt-45">
             @foreach ($services as $service)
@@ -45,7 +45,7 @@
                     <div class="content">
                         <i class="flaticon-consultant"></i>
                         <span><a href="/{{$lang}}/service/{{$service->slug}}">{{$service->name}}</a></span>
-                        <h3><a href="/{{$lang}}/service-type/{{$service->service_type}}">{{$service->service_type}}</a></h3>
+                        <h3><a href="/{{$lang}}/service/{{$service->slug}}">{{$service->serviceType->name}}</a></h3>
                     </div>
                 </div>
             </div>

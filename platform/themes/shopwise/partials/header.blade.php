@@ -114,8 +114,8 @@
                             <div class="nav-side d-display nav-side-mt">
                                 <div class="nav-side-item">
                                     <div class="search-side-widget">
-                                        <form class="search-side-form">
-                                            <input type="search" class="form-control" placeholder="{{__('Search')}}...">
+                                        <form class="search-side-form" action="{{ route('public.search') }}">
+                                            <input type="text" name="q" class="form-control" placeholder="{{__('Search')}}...">
                                             <button type="submit" aria-label="Search Thamar Blog">
                                                 <i class="bx bx-search"></i>
                                             </button>
