@@ -237,8 +237,14 @@ a{
     z-index: 98;
 }
 
-
-
+.banner-seven-slide.owl-theme .owl-nav [class*=owl-].owl-prev {
+    left: 30px;right: auto;
+    opacity: 0.5;
+}
+.banner-seven-slide.owl-theme .owl-nav [class*=owl-].owl-next {
+    right: 30px;
+    left: auto;opacity: 0.5;
+}
 @media only screen and (max-width: 767px){
     .banner-content h1 {
         font-size: 35px;
@@ -252,7 +258,18 @@ a{
         left: 0;
         right: 0;
     }
-
+    .banner-seven-slide.owl-theme .owl-nav [class*=owl-].owl-prev {
+        left: 10px;right: auto;
+        opacity: 0.4;
+    }
+    .banner-seven-slide.owl-theme .owl-nav [class*=owl-].owl-next {
+        right: 10px;
+        left: auto;opacity: 0.4;
+    }
+    .banner-seven-slide.owl-theme .owl-nav {
+    
+        bottom: -85px;opacity: 0;
+    }
     .services-item {
         text-align: center;
     }

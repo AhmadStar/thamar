@@ -1,1 +1,1 @@
-@include(Theme::getThemeNamespace() . '::views.templates.posts')
+ @include(Theme::getThemeNamespace() . '::views.templates.posts')
