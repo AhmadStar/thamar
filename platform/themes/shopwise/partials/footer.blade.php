@@ -90,6 +90,31 @@
                                 <div id="message" style="display: none;"></div>
                             </form>
                         </div>
+
+                        <div class="social-link social-link-footer">
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/" target="_blank">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/?lang=en" target="_blank">
+                                        <i class="bx bxl-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/" target="_blank">
+                                        <i class="bx bxl-linkedin-square"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" target="_blank">
+                                        <i class="bx bxl-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
