@@ -80,7 +80,8 @@ class HookServiceProvider extends ServiceProvider
                     [],
                     $version
                 )
-                ->add('simple-slider-js', $dist . '/js/simple-slider.js', ['jquery'], [], $version);
+                ->add('simple-slider-js', $dist . '/js/simple-slider.js', ['jquery'], [], $version)
+                ->add('slick-slider-js', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', ['jquery'], [], $version);
         }
 
         return view(apply_filters(SIMPLE_SLIDER_VIEW_TEMPLATE, 'plugins/simple-slider::sliders'), [

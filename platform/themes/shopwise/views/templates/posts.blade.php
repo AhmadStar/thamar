@@ -5,6 +5,7 @@
     </div>
     <div class="row pt-45">
 
+
     @foreach ($posts as $post)
         <div class="col-lg-6 col-md-6">
             <div class="blog-card">

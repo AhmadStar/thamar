@@ -62,6 +62,8 @@ return [
                 $theme->asset()->usePath()->add('thamar-rtl', 'css/thamar-rtl.css', [], ['async'], $version);
             }
 
+            $theme->asset()->add('slick-style', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css');
+
             $theme->asset()->usePath()->add('custome-style', 'assets/css/custome-style.css');
 
             $theme->asset()->container('header')->usePath()->add('jquery', 'assets/js/jquery.min.js');
@@ -75,6 +77,8 @@ return [
             // $theme->asset()->container('footer')->usePath()->add('validatorjs', 'assets/js/form-validator.min.js', ['jquery']);
             // $theme->asset()->container('footer')->usePath()->add('contactjs', 'assets/js/contact-form-script.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('customjs', 'assets/js/custom.js', ['jquery']);
+            $theme->asset()->container('footer')->add('slick', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', ['jquery']);
+
 
 
             if (function_exists('shortcode')) {

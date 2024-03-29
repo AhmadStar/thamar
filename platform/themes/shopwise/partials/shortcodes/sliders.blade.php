@@ -1,4 +1,38 @@
-@if (count($sliders) > 0)
+<div class="container">
+    <div id="slick" class="hero-slider">
+        @foreach($sliders->loadMissing('metadata') as $slider)
+        <div class="slide1 office-photo">
+            <div class="text--holder">
+                @if ($slider->title)
+                    <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">{{ $slider->title }}</h2>
+                @endif
+                    @if ($slider->description)
+                        <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">{{ $slider->description }}</h5>
+                    @endif
+            </div>
+            <div class="img--holder" style="background-image: url({{ RvMedia::getImageUrl($slider->image, null, false, RvMedia::getDefaultImage()) }});"></div>
+        </div>
+        @endforeach
+        <div class="slide2">
+            <div class="text--holder">
+                <h2>We want you to love your smile</h2>
+            </div>
+            <div class="img--holder" style="background-image: url(https://source.unsplash.com/random?1);"></div>
+        </div>
+        <div class="slide3">
+            <div class="text--holder">
+                <h2>New Patient Special</h2>
+                <p>Cleaning, Xrays, and Exam<br>only $129!</p>
+            </div>
+            <div class="img--holder" style="background-image: url(https://source.unsplash.com/random?3);"></div>
+        </div>
+    </div>
+    <!-- /#slick -->
+</div>
+<!-- /.container -->
+
+
+@if (count($sliders) > 10)
     <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
         <div class="container">
             <div class="row">
