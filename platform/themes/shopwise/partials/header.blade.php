@@ -6,8 +6,6 @@
         <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1" name="viewport"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {!! BaseHelper::googleFonts('https://fonts.googleapis.com/css2?family=' . urlencode(theme_option('primary_font', 'Poppins')) . ':wght@200;300;400;500;600;700;800;900&display=swap') !!}
-
         {{--
         006A62
         22AC9B
@@ -31,7 +29,7 @@
             }
         </style>
 
-<link rel="preload" href="{{ asset('/themes/shopwise/assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" href="{{ asset('/themes/shopwise/assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ asset('/themes/shopwise/assets/css/bootstrap.min.css') }}"></noscript>
 
         {!! Theme::header() !!}
@@ -114,8 +112,8 @@
                             <div class="nav-side d-display nav-side-mt">
                                 <div class="nav-side-item">
                                     <div class="search-side-widget">
-                                        <form class="search-side-form">
-                                            <input type="search" class="form-control" placeholder="{{__('Search')}}...">
+                                        <form class="search-side-form" action="{{ route('public.search') }}">
+                                            <input type="text" name="q" class="form-control" placeholder="{{__('Search')}}...">
                                             <button type="submit" aria-label="Search Thamar Blog">
                                                 <i class="bx bx-search"></i>
                                             </button>
