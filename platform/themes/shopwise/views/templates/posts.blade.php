@@ -1,11 +1,13 @@
+
 @if ($posts->count() > 0)
-    <div class="section-title text-center">
-        <span class="sp-color2">{{__('Thamar Consulting')}}</span>
-        <h2>{{__('Blog')}}</h2>
-    </div>
+    {{--<div class="section-title text-center">--}}
+        {{--<span class="sp-color2">{{__('Thamar Consulting')}}</span>--}}
+        {{--<h2>{{__('Blog')}}</h2>--}}
+    {{--</div>--}}
     <div class="row pt-45">
 
         @foreach ($posts as $post)
+
             <div class="col-lg-6 col-md-6">
                 <div class="blog-card">
                     <div class="blog-img">
@@ -31,6 +33,7 @@
             </div>
 
         @endforeach </div>
+
     <div class="row">
         <div class="col-12 mt-2 mt-md-4">
             <div class="pagination_style1 justify-content-center">
