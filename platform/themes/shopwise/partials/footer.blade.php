@@ -12,7 +12,7 @@
                     <div class="footer-widget">
                         <div class="footer-logo">
                             <a href="/">
-                                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{theme_option('site_title')}}" loading="lazy">
+                                <img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{theme_option('site_title')}}" >
                             </a>
                         </div>
                         <p>

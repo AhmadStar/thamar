@@ -26,12 +26,18 @@
 
     <div class="banner-seven-slide owl-carousel owl-theme" dir="ltr">
         @foreach($sliders->loadMissing('metadata') as $slider)
-            <div class="banner-five-area" style="background: url(https://staging.thamar-consulting.com/storage/general/blurred-soft-people-meeting-table-business-people-talking-modern-office-generative-ai-1.jpg)">
+            <div class="banner-five-area " style="
+            background: url(https://staging.thamar-consulting.com/storage/general/blurred-soft-people-meeting-table-business-people-talking-modern-office-generative-ai-1.jpg)
+            ">
+                {{--<div class=" zoom-infinite"--}}
+                     {{--style="--}}
+            {{--background: url(https://staging.thamar-consulting.com/storage/general/blurred-soft-people-meeting-table-business-people-talking-modern-office-generative-ai-1.jpg)--}}
+            {{--"></div>--}}
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="banner-five-content">
-                                <span>TECHNOLOGY & IT SOLUTIONS</span>
+                                <span>Thamar Consulting</span>
                                 @if ($slider->title)
                                     <h1 class="staggered-animation" data-animation="slideInLeft"
                                         data-animation-delay="1s">

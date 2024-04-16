@@ -1,5 +1,27 @@
+@font-face {
+  font-family: '29lt_bukrabold';
+  src: url('fonts/29ltbukrabold-webfont.woff2') format('woff2'),
+  url('fonts/29ltbukrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: '29lt_bukralight';
+  src: url('fonts/29ltbukralight-webfont.woff2') format('woff2'),
+  url('fonts/29ltbukralight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   text-align: right;
+
 }
 
 .ml-20 {
